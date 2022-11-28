@@ -1,0 +1,6 @@
+[submodule "cross-view-localization-bag"]
+	path = cross-view-localization-bag
+	url = https://github.com/ElGarash/cross-view-localization-bag
+[submodule "bdd100k-trajectories"]
+	path = bdd100k-trajectories
+	url = https://github.com/ElGarash/bdd100k-trajectories
