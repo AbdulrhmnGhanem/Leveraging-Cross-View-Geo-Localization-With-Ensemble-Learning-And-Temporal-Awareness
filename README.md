@@ -3,6 +3,7 @@ The code for the Leveraging Cross-View Geo-Localization With Ensemble Learning A
 
 The `bdd100k-trajectories` repo contains the code for our deravative dataset pipeline. And the `cross-view-geo-localiztion-bag` cotains the
 code for constructing the ensemble model.
+##
 
 ```console
 $ tree
@@ -89,9 +90,7 @@ $ tree
 │   │   │   ├── CVACT_orientations
 │   │   │   │   └── ACT_data.mat
 │   │   │   ├── input_data_ACT_test.py
-│   │   │   ├── input_data_VGG.py
-│   │   │   └── __pycache__
-│   │   │       └── input_data_VGG.cpython-36.pyc
+│   │   │   └── input_data_VGG.py
 │   │   ├── README.md
 │   │   ├── SAFA_poster.pdf
 │   │   └── script
@@ -104,13 +103,7 @@ $ tree
 │   │       │   │   ├── ACT_data.mat
 │   │       │   │   ├── yaw_pitch_grd_CVACT.mat
 │   │       │   │   └── yaw_radius_sat_CVACT.mat
-│   │       │   ├── input_data_act_polar.py
-│   │       │   └── __pycache__
-│   │       │       └── input_data_act_polar.cpython-36.pyc
-│   │       ├── __pycache__
-│   │       │   ├── input_data_cvusa.cpython-36.pyc
-│   │       │   ├── spatial_net.cpython-36.pyc
-│   │       │   └── VGG.cpython-36.pyc
+│   │       │   └── input_data_act_polar.py
 │   │       ├── spatial_net.py
 │   │       ├── test_cvact.py
 │   │       ├── test_cvusa.py
@@ -130,4 +123,6 @@ $ tree
 │       └── train_CVUSA_01.py
 └── LICENSE
 ```
+##
+
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
