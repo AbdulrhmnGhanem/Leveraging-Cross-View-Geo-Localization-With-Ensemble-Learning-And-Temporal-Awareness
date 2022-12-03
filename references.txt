@@ -1,0 +1,55 @@
+Ben-Moshe, Boaz, et al. "Improving Accuracy of GNSS Devices in Urban Canyons." CCCG. 2011.
+M. Zhai, Z. Bessinger, S. Workman, and N. Jacobs, “Predicting ground-level scene layout from aerial imagery,” in IEEE Conference on Computer Vision and Pattern Recognition, 2017
+Tingyu Wang, Zhedong Zheng, Chenggang Yan, and Yi Yang. Each part matters: Local patterns facilitate cross-view geo-localization. arXiv preprint arXiv:2008.11646, 2020
+L. Liu and H. Li, “Lending orientation to neural networks for cross-view geo-localization,” in IEEE Conference on Computer Vision and Pattern Recognition, 2019.
+S. Zhu, T. Yang, and C. Chen, “Vigor: Cross-view image geo-localization beyond one-to-one retrieval,” 2020, arXiv:2011.12172.
+Churchill, W., Newman, P.: Experience-based navigation for long-term localisation. The International Journal of Robotics Research (2013)
+A.-D. Doan, Y. Latif, T.-J. Chin, Y. Liu, S. F. Ch’ng, T.-T. Do, and I. Reid, “Visual localization under appearance change: A filtering approach,” 2019 Digital Image Computing: Techniques and Applications (DICTA), pp. 1–8, 2019.
+Royston Rodrigues and Masahiro Tani. Are these from the same place? seeing the unseen in cross-view image geo- localization. In Proceedings of the IEEE/CVF Winter Con ference on Applications of Computer Vision (WACV), pages 3753–3761, January 2021.
+Doan, A.D., Latif, Y., Chin, T.J., Liu, Y., Do, T.T., Reid, I.: Scalable place recog-nition under appearance change for autonomous driving. In: ICCV (2019)
+Milford, M. J., Wyeth, G. F., 2012. SeqSLAM: Visual route-based navigation for sunny summer days and stormy winter nights. Proceedings of the IEEE International Conference on Robotics and Automation (ICRA), 1643–1649.
+Alazzawi, Abdulbasit & Alsaadi, Husfam & Shallal, Abidaoun & Albawi, Saad. (2015). EDGE DETECTION-APPLICATION OF (FIRST AND SECOND) ORDER DERIVATIVE IN IMAGE PROCESSING. 
+Fisher Yu, Haofeng Chen, Xin Wang, Wenqi Xian, Yingying Chen, Fangchen Liu, Vashisht Madhavan, and Trevor Darrell. Bdd100k: A diverse driving dataset for heterogeneous multitask learning. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition, pages 2636–2645, 2020.
+ Yujiao Shi, Xin Yu, Dylan Campbell, and Hongdong Li. Where am i looking at? joint location and orientation estimation by cross-view matching. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 4064–4072, 2020.
+J. Wang, Y. Yang, M. Pan, M. Zhang, M. Zhu and M. Fu, "Hybrid Perspective Mapping: Align Method for Cross-View Image-Based Geo-Localization," 2021 IEEE International Intelligent Transportation Systems Conference (ITSC), 2021, pp. 3040-3046, doi: 10.1109/ITSC48978.2021.9564573.
+Maps Static API developers.google.com/maps/documentation/maps-static/overview
+Great-circle distance - Wikipedia
+Z. Xia, O. Booij, M. Manfredi and J. F. P. Kooij, "Cross-View Matching for Vehicle Localization by Learning Geographically Local Representations," in IEEE Robotics and Automation Letters, vol. 6, no. 3, pp. 5921-5928, July 2021, doi: 10.1109/LRA.2021.3088076.
+A. Toker, Q. Zhou, M. Maximov and L. Leal-Taixé, "Coming Down to Earth: Satellite-to-Street View Synthesis for Geo-Localization," 2021 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2021, pp. 6484-6493, doi: 10.1109/CVPR46437.2021.00642.
+Yang, Hongji & Lu, Xiufan & Zhu, Yingying. (2021). Cross-view Geo-localization with Evolving Transformer. 
+Regmi, Krishna, "Exploring Relationships Between Ground and Aerial Views by Synthesis and Matching" (2021). Electronic Theses and Dissertations, 2020-. 747
+Hu, Sixing & Lee, Gim. (2019). Image-Based Geo-Localization Using Satellite Imagery. 
+Dixit, Deeksha & Tokekar, Pratap. (2020). Evaluation of Cross-View Matching to Improve Ground Vehicle Localization with Aerial Perception. 
+FFmpeg. A complete, cross-platform solution to record, convert and stream audio and video. Ffmpeg.org
+ K. Regmi and M. Shah, "Video Geo-Localization Employing Geo-Temporal Feature Learning and GPS Trajectory Smoothing," 2021 IEEE/CVF International Conference on Computer Vision (ICCV), 2021, pp. 12106-12115, doi: 10.1109/ICCV48922.2021.01191.
+ Wei‐liang, Z., et al.: Comprehensive review of autonomous taxi dispatching systems. Computer Science. 47(5), 9 (2020)
+Mequanint, Eyasu & Tesfaye, Yonatan & Idrees, Haroon & Prati, Andrea & Pelillo, Marcello & Shah, Mubarak. (2017). Large-Scale Image Geo-Localization Using Dominant Sets. IEEE Transactions on Pattern Analysis and Machine Intelligence. 41. 10.1109/TPAMI.2017.2787132. 
+Lowe, D.G. Distinctive Image Features from Scale-Invariant Keypoints. International Journal of Computer Vision 60, 91–110 (2004).
+Bay, Herbert & Tuytelaars, Tinne & Van Gool, Luc. (2006). SURF: Speeded up robust features. Computer Vision-ECCV 2006. 3951. 404-417. 10.1007/11744023_32. 
+Alahi, Alexandre & Ortiz, Raphael & Vandergheynst, Pierre. (2012). FREAK: Fast retina keypoint. Proceedings of the IEEE Computer Society Conference on Computer Vision and Pattern Recognition. 510-517. 10.1109/CVPR.2012.6247715. 
+Zisserman, Andrew & Muñoz, Xavier. (2007). Image Classification using Random Forests and Ferns. ICCV. 1-8. 10.1109/ICCV.2007.4409066. 
+Simonyan, Karen & Zisserman, Andrew. (2014). Very Deep Convolutional Networks for Large-Scale Image Recognition. arXiv 1409.1556. 
+Y. Tian, C. Chen and M. Shah, "Cross-View Image Matching for Geo-Localization in Urban Environments," 2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2017, pp. 1998-2006, doi: 10.1109/CVPR.2017.216.
+Ren, Shaoqing & He, Kaiming & Girshick, Ross & Sun, Jian. (2015). Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks. IEEE Transactions on Pattern Analysis and Machine Intelligence. 39. 10.1109/TPAMI.2016.2577031. 
+Krizhevsky, Alex & Sutskever, Ilya & Hinton, Geoffrey. (2012). ImageNet Classification with Deep Convolutional Neural Networks. Neural Information Processing Systems. 25. 10.1145/3065386. 
+S. Chopra, R. Hadsell and Y. LeCun, "Learning a similarity metric discriminatively, with application to face verification," 2005 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR'05), 2005, pp. 539-546 vol. 1, doi: 10.1109/CVPR.2005.202.
+S. Hu, M. Feng, R. M. H. Nguyen and G. H. Lee, "CVM-Net: Cross-View Matching Network for Image-Based Ground-to-Aerial Geo-Localization," 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2018, pp. 7258-7267, doi: 10.1109/CVPR.2018.00758.
+Võ, Nam & Hays, James. (2016). Localizing and Orienting Street Views Using Overhead Imagery. 9905. 494-509. 10.1007/978-3-319-46448-0_30. 
+He, Kaiming & Zhang, Xiangyu & Ren, Shaoqing & Sun, Jian. (2016). Deep Residual Learning for Image Recognition. 770-778. 10.1109/CVPR.2016.90. 
+G. Huang, Z. Liu, L. Van Der Maaten and K. Q. Weinberger, "Densely Connected Convolutional Networks," 2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2017, pp. 2261-2269, doi: 10.1109/CVPR.2017.243.
+F. Chollet, "Xception: Deep Learning with Depthwise Separable Convolutions," 2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2017, pp. 1800-1807, doi: 10.1109/CVPR.2017.195.
+Abonce, Obed & Zhou, Mengjie & Calway, Andrew. (2019). You Are Here: Geolocation by Embedding Maps and Images. 
+Ronneberger, Olaf & Fischer, Philipp & Brox, Thomas. (2015). U-Net: Convolutional Networks for Biomedical Image Segmentation. LNCS. 9351. 234-241. 10.1007/978-3-319-24574-4_28. 
+S. Zhu, T. Yang and C. Chen, "Revisiting Street-to-Aerial View Image Geo-localization and Orientation Estimation," 2021 IEEE Winter Conference on Applications of Computer Vision (WACV), 2021, pp. 756-765, doi: 10.1109/WACV48630.2021.00080.
+Shi, Yujiao & Yu, Xin & Liu, Liu & Zhang, Tong & Li, Hongdong. (2019). Optimal Feature Transport for Cross-View Image Geo-Localization. 
+S. Cai, Y. Guo, S. Khan, J. Hu and G. Wen, "Ground-to-Aerial Image Geo-Localization With a Hard Exemplar Reweighting Triplet Loss," 2019 IEEE/CVF International Conference on Computer Vision (ICCV), 2019, pp. 8390-8399, doi: 10.1109/ICCV.2019.00848.
+Yujiao Shi, Liu Liu, Xin Yu, and Hongdong Li. 2019. Spatial-aware feature aggregation for cross-view image based geo-localization. Proceedings of the 33rd International Conference on Neural Information Processing Systems. Curran Associates Inc., Red Hook, NY, USA, Article 905, 10090–10100.
+Xia, Zimin & Booij, Olaf & Manfredi, Marco & Kooij, Julian. (2020). Geographically Local Representation Learning with a Spatial Prior for Visual Localization. 10.1007/978-3-030-66096-3_38. 
+Woo, S., Park, J., Lee, JY., Kweon, I.S. (2018). CBAM: Convolutional Block Attention Module. In: Ferrari, V., Hebert, M., Sminchisescu, C., Weiss, Y. (eds) Computer Vision – ECCV 2018. 
+Li, S., et al.: Multi-scale attention encoder for street-to-aerial image geo-localization. CAAI Trans. Intell. Technol. 1– 11 (2022).
+K. Regmi and M. Shah, "Bridging the Domain Gap for Ground-to-Aerial Image Matching," 2019 IEEE/CVF International Conference on Computer Vision (ICCV), 2019, pp. 470-479, doi: 10.1109/ICCV.2019.00056.
+Regmi, Krishna & Borji, Ali. (2018). Cross-View Image Synthesis using Conditional GANs. 10.1109/CVPR.2018.00369. 
+Canny, John. (1986). A Computational Approach To Edge Detection. Pattern Analysis and Machine Intelligence, IEEE Transactions on. PAMI-8. 679 - 698. 10.1109/TPAMI.1986.4767851. 
+Y. Shi, D. J. Campbell, X. Yu and H. Li, "Geometry-Guided Street-View Panorama Synthesis from Satellite Imagery," in IEEE Transactions on Pattern Analysis and Machine Intelligence, doi: 10.1109/TPAMI.2022.3140750.
+Doan, Dzung & Latif, Yasir & Chin, Tat-Jun & Liu, Yu & Do, Thanh-Toan & Reid, Ian. (2019). Scalable Place Recognition Under Appearance Change for Autonomous Driving. 9318-9327. 10.1109/ICCV.2019.00941. 
+S. Workman, R. Souvenir, and N. Jacobs. Wide-area image geolocalization with aerial reference imagery. In ICCV, 2015. 1, 2, 4.
