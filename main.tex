@@ -73,6 +73,7 @@
 
 \documentclass[10pt,letterpaper]{article}
 \usepackage{booktabs, makecell}
+\usepackage{multirow}
 
 \usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
 
@@ -363,7 +364,38 @@ We give an overview of the temporal awareness approaches used in cross-view geo-
   }
   \label{table3}
 \end{table}
-  
+
+\section*{Methodology}
+\subsection*{A) Evaluation metric}
+In this research, we use the same evaluation metric used in~\cite{bib3,bib4,bib5,bib8,bib13,bib14,bib17,bib18,bib19,bib20,bib21,bib22,bib24,bib36,bib43,bib44,bib45,bib46,bib47,bib49,bib50}, namely, the Recall@k (r@k). In r@k, we consider it a match if the corresponding aerial image is in the top k predictions. We use r@1, r@5, r@10, and r@1\%. r@1 means the true image is the first prediction of the model, r@5 means the true image is in the first five predictions of the model, and so on.
+
+\subsection*{B) The ensemble model}
+
+There are many challenges in cross-view matching. To name a few , missing correspondence and orientation information, scene changes over time, and the high similarity among geographically close points. Recently, several models were developed to solve the cross-view (CV) matching problem, and different models approached the CV matching problem from different angles. Thus, each model has its advantages and disadvantages. We hypothesize that aggregating the outputs of these uncorrelated models might improve the accuracy.
+Therefore, in this research, we build an ensemble of models trained independently to solve the CV matching problem. The proposed ensemble used the same datasets to train different neural network architectures. We used the CVUSA~\cite{bib55} and CVACT~\cite{bib4} benchmark datasets, to train five models Each model addresses a  different aspect of the problem: DSM~\cite{bib13} estimates the cross-view orientation alignment.  EgoTR~\cite{bib19} models global dependencies to decrease visual ambiguities and matches geometric configuration between ground and aerial images. SAFA~\cite{bib46} exploits geometric correspondence between aerial and panoramic ground images. Toker~\cite{bib18} biases the localization network via a Generative Adversarial Network (GAN) to learn salient features. SFCANet~\cite{bib45} uses Hard Exemplar Reweighting to assign a greater weight to hard examples. Table~\ref{table4} shows their r@k metrics.
+
+\begin{table}[!ht]
+\begin{adjustwidth}{-1.0in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+  \centering
+  \caption{
+    {\bf The r@k metrics for the networks used to construct the  ensemble model.}}
+  \scalebox{0.96}{
+    \begin{tabular}{@{}lllllcrrrrrrr@{}}
+      \toprule
+      & \multirow{3}{*}{\bf Network} & \multicolumn{4}{c}{\bf CVUSA} & \phantom{abc}& \multicolumn{4}{c}{\bf CVACT} & \phantom{abc} & \\
+      \cmidrule{3-6} \cmidrule{8-11}
+      & \phantom{abc} & r@{\bf 1} & r@{\bf 5} & r@{\bf 10}&  r@{\bf 1\%} & \phantom{abc} & r@{\bf 1} & r@{\bf 5} & r@{\bf 10}&  r@{\bf 1\%} & \\
+      &\phantom{abc} & \multicolumn{9}{c}{(\%)}  \\ \bottomrule
+      & DSM~\cite{bib13} & 92.07 & 97.33 & 98.33 & 99.60 & \phantom{abc} & 81.93 & 91.83 & 93.95 &  97.42& \\
+      & Toker~\cite{bib18} & 92.15 & 97.28 & 98.26 &  99.56 & \phantom{abc}  & 83.52 & 93.89 & 95.48 &  98.17& \\
+      & EgoTR~\cite{bib19} & 93.87 & 98.22 & 98.98 & 99.66 & \phantom{abc} & 84.87 & 94.5 & 95.95 &  98.37& \\
+      & SFCANet~\cite{bib45} & 51.01 & 78.92 & 86.80 & 98.49 & \phantom{abc} & x & x & x &  x& \\ 
+      & SAFA~\cite{bib46} & 88.93 & 96.65 & 97.97 & 99.65 & \phantom{abc} & 74.56 & 89.65 & 92.46 &  97.72& \\ \bottomrule
+    \end{tabular}
+  }
+  \label{table4}
+  \end{adjustwidth}
+\end{table}
 
 
 % For figure citations, please use "Fig" instead of "Figure".
@@ -378,7 +410,7 @@ Figure caption text here, please use this space for the figure panel description
 
 % Results and Discussion can be combined.
 \section*{Results}
-Nulla mi mi, venenatis sed ipsum varius, Table~\ref{table4} volutpat euismod diam. Proin rutrum vel massa non gravida. Quisque tempor sem et dignissim rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at justo vitae nulla elementum commodo eu id massa. In vitae diam ac augue semper tincidunt eu ut eros. Fusce fringilla erat porttitor lectus cursus, vel sagittis arcu lobortis. Aliquam in enim semper, aliquam massa id, cursus neque. Praesent faucibus semper libero.
+Nulla mi mi, venenatis sed ipsum varius, Table~\ref{table5} volutpat euismod diam. Proin rutrum vel massa non gravida. Quisque tempor sem et dignissim rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at justo vitae nulla elementum commodo eu id massa. In vitae diam ac augue semper tincidunt eu ut eros. Fusce fringilla erat porttitor lectus cursus, vel sagittis arcu lobortis. Aliquam in enim semper, aliquam massa id, cursus neque. Praesent faucibus semper libero.
 
 % Place tables after the first paragraph in which they are cited.
 \begin{table}[!ht]
@@ -395,7 +427,7 @@ $cell1 row3$ & cell2 row 3 & cell3 row 3 & cell4 row 3 & cell5 row 3 & cell6 row
 \end{tabular}
 \begin{flushleft} Table notes Phasellus venenatis, tortor nec vestibulum mattis, massa tortor interdum felis, nec pellentesque metus tortor nec nisl. Ut ornare mauris tellus, vel dapibus arcu suscipit sed.
 \end{flushleft}
-\label{table4}
+\label{table5}
 \end{adjustwidth}
 \end{table}
 
