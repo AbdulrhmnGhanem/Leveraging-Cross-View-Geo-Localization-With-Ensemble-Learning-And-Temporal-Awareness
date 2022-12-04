@@ -74,7 +74,8 @@
 \documentclass[10pt,letterpaper]{article}
 \usepackage{booktabs, makecell}
 \usepackage{multirow}
-
+\usepackage{graphicx}
+\graphicspath{ {./figures/png/} }
 \usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
 
 % amsmath and amssymb packages, useful for mathematical formulas and symbols
@@ -397,16 +398,28 @@ Therefore, in this research, we build an ensemble of models trained independentl
   \end{adjustwidth}
 \end{table}
 
+This research investigates two different aggregation methods: soft-voting, and hard-voting. As shown in Fig~\ref{fig1}, for both methods, we try all possible  combinations of the models (their power set).
 
-% For figure citations, please use "Fig" instead of "Figure".
-Nulla mi mi, Fig~\ref{fig1} venenatis sed ipsum varius, volutpat euismod diam. Proin rutrum vel massa non gravida. Quisque tempor sem et dignissim rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at justo vitae nulla elementum commodo eu id massa. In vitae diam ac augue semper tincidunt eu ut eros. Fusce fringilla erat porttitor lectus cursus, \nameref{S1_Video} vel sagittis arcu lobortis. Aliquam in enim semper, aliquam massa id, cursus neque. Praesent faucibus semper libero.
-
-% Place figure captions after the first paragraph in which they are cited.
 \begin{figure}[!h]
-\caption{{\bf Bold the figure title.}
-Figure caption text here, please use this space for the figure panel descriptions instead of using subfigure commands. A: Lorem ipsum dolor sit amet. B: Consectetur adipiscing elit.}
+\caption{{\bf Different ensemble aggregation methods.}}
+\centering
+\includegraphics[width=0.9\linewidth]{fig1.tiff.png}
 \label{fig1}
 \end{figure}
+
+In soft-voting, we experimented with two calculation methods. a) Averaging the predictions of the individual models. b) Calculating the joint probability, using Eq~(\ref{eq1}). Both methods have identical results.
+
+\begin{eqnarray}
+\label{eq1}
+\text{total vote} = \exp(\log(vote_1) + \log(vote_2) + ..., \log(vote_n)),
+\end{eqnarray}
+
+In hard-voting, we selected the majority vote of the models. Hard-voting needs at least three models to have a majority vote. There are two cases where a majority vote doesn’t exist:
+\begin{enumerate}
+  \item Combinations with an even number of models can tie, so we pick the combination containing the most accurate model.
+  \item All models’ predictions differ, so we tried two strategies. {\bf A)} take the prediction of the most accurate model in the combination. {\bf B)} pick a prediction from a random normal distribution of individual models' predictions.
+\end{enumerate}
+
 
 % Results and Discussion can be combined.
 \section*{Results}
