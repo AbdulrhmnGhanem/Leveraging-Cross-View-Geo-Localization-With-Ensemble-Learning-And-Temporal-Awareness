@@ -683,6 +683,9 @@ However promising this is, if the prior is wrong it can result in “trapping”
   \label{fig19}
 \end{figure}
 
+\FloatBarrier
+\section*{Conclusion amd future work}
+In this work, we created a model ensemble to merge the predictions of numerous cutting-edge models. Our ensemble model accuracy surpassed the current state-of-the-art. Also, we demonstrated the effect of factoring in trip temporal information. And we managed to converge to 100\% using naive history. But none of the available benchmark datasets are appropriate for extensive temporal awareness experiments, so we created a new derivative dataset based on BDD100K. And paved the way to use this dataset to build an end-to-end model that exploits the temporal correlation during a single trip, and fuses other data modalities and sources during querying and training. Also, we can see there is room for analyzing different state-of-art models to identify the most promising building modules and then use the network architecture search (NAS) paradigm to develop an optimal CV matching network. We anticipate that this study will kick-start the development of deployable cross-view geo-localization models, exploring fusing other data modalities and sources during querying and training. And we believe there is a great gap for real-time, weather condition-averse models that can initiate many research points.
 
 \nolinenumbers
 \FloatBarrier
