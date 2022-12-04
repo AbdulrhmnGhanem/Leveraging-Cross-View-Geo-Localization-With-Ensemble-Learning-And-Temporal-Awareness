@@ -24,7 +24,7 @@ def table(txt, cols_num, rows_num):
     rows = txt.split('\n')
     rows = [rows[i:i+cols_num] for i in range(0, len(rows), cols_num)]
     assert len(rows) == rows_num, f'len(rows) = {len(rows)} != {rows_num}'
-    table = [' & '.join((n, b, latexify(f' {r}'))) for n, b, r in rows]
+    table = [' & '.join((*a, latexify(f' {r}'))) for *a, r in rows]
 
     table_body = ''
     for line in table:
