@@ -560,7 +560,7 @@ As mentioned before the cross-view models are complementary to existing GNSS, so
   \end{algorithm}
 
 \section*{Results}
-\subsection*{The ensemble model}
+\subsection*{A) The ensemble model}
 Fig~\ref{fig8} and Fig~\ref{fig9} show the results of the soft-voting strategies for CVUSA and CVACT, respectively. The DSM, EgoTR, and Toker combination outperforms other combinations. Increasing the number of the models doesn’t necessarily improve the accuracy; to improve the accuracy; individual models have to predict different examples correctly.
 
 \begin{figure}[!h]
@@ -624,6 +624,31 @@ Fig~\ref{fig14} illustrates that soft voting performs  the best. Although soft v
   \caption{{\bf An example that shows the Mixed Model architecture r@(1 - 5) compared to the individual models on the CVACT dataset.}  The true satellite has a red border.}
   \includegraphics[width=0.9\linewidth]{fig16.tiff.png}
   \label{fig16}
+\end{figure}
+\nolinenumbers
+
+\subsection*{B) EgoTR fine-tuning}
+
+The training process took ~$192$ hours for $228$ epochs. Table~\ref{table6} shows the r@k metrics for the model. This drop in accuracy can be attributed to {\bf 1)} The ground images in our dataset aren't panoramic, in contrast to CVUSA and CVACT. {\bf 2)} High similarity between the consecutive pairs. {\bf 3)} One of the shortcomings of the r@k metric is that it depends on the size of the validation dataset as shown in  Figure~\ref{fig17}, our validation dataset size is more than double the size of CVUSA or the size of CVACT.
+
+\begin{table}[!ht]
+  \centering
+  \caption{
+  {\bf r@k metrics of EgoTR fine-tuned over the reshaped BDD-trajectories dataset.}}
+  \scalebox{0.96}{
+    \begin{tabular}{@{}ccccccc@{}}
+    \toprule
+    & {\bf r@1 (\%)} & {\bf r@5 (\%)} & {\bf r@10 (\%)} & {\bf r@1\% (\%)} &\\ \midrule
+    & 9.99 & 9.99 & 16.72 & 66.98m & \\ \bottomrule
+    \end{tabular}
+  }
+  \label{table6}
+\end{table}
+
+\begin{figure}[!h]
+  \caption{{\bf The effect of the size of the validation dataset on the r@k metric.}  Same model (EgoTR) with the same dataset (BDD-trajectories). The accuracy decreases as the size of the validation dataset increases.}
+  \includegraphics[width=0.9\linewidth]{fig17.tiff.png}
+  \label{fig17}
 \end{figure}
 \nolinenumbers
 
