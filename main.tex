@@ -566,8 +566,78 @@ As mentioned before the cross-view models are complementary to existing GNSS, so
   \Return $m_{ij}$\;
   \end{algorithm}
 
+\section*{Results}
+\subsection*{The ensemble model}
+Fig~\ref{fig8} and Fig~\ref{fig9} show the results of the soft-voting strategies for CVUSA and CVACT, respectively. The DSM, EgoTR, and Toker combination outperforms other combinations. Increasing the number of the models doesn’t necessarily improve the accuracy; to improve the accuracy; individual models have to predict different examples correctly.
+
+\begin{figure}[!h]
+  \caption{{\bf CVUSA combinations for the soft-voting strategies. The dark bar is the best performing combination.} The DSM, EgoTR, and Toker combination outperforms other combinations.}
+  \centering
+  \includegraphics[width=0.9\linewidth]{fig8.tiff.png}
+  \label{fig8}
+\end{figure}
+
+\begin{figure}[!h]
+  \caption{{\bf CVACT combinations for the soft-voting strategies. The dark bar is the best performing combination.} The DSM, EgoTR, and Toker combination outperforms other combinations. }
+  \centering
+  \includegraphics[width=0.9\linewidth]{fig9.tiff.png}
+  \label{fig9}
+\end{figure}
+
+Fig\ref{fig10} and Fig~{fig11} show the results of hard-voting with the most accurate model prediction strategy for CVUSA and CVACT, respectively. The accuracy drops about 2\% for the r@1 and r@5 metrics. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations. Fig~\ref{fig12} and Fig~\ref{fig13} show the results of the hard-voting with the random selection strategy for CVUSA and CVACT, respectively. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations.
 
 
+\begin{figure}[!h]
+  \caption{{\bf CVUSA combinations for hard-voting with the most accurate model prediction strategy.} The dark bar is the best performing combination. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations.}
+  \centering
+  \includegraphics[width=0.9\linewidth]{fig10.tiff.png}
+  \label{fig10}
+\end{figure}
+
+\begin{figure}[!h]
+  \caption{{\bf CVACT combinations for hard-voting with the most accurate  model prediction strategy.} The dark bar is the best performing combination. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations.}
+  \centering
+  \includegraphics[width=0.9\linewidth]{fig11.tiff.png}
+  \label{fig11}
+\end{figure}
+
+\begin{figure}[!h]
+  \caption{{\bf CVUSA combinations for hard-voting with the random selection strategy.} The dark bar is the best performing combination. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations. }
+  \centering
+  \includegraphics[width=0.9\linewidth]{fig12.tiff.png}
+  \label{fig12}
+\end{figure}
+
+\begin{figure}[!h]
+  \caption{{ CVACT combinations for hard-voting with the random selection strategy.}   The dark bar is the best performing combination. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations.}
+  \centering
+  \includegraphics[width=0.9\linewidth]{fig13.tiff.png}
+  \label{fig13}
+\end{figure}
+
+
+Fig~\ref{fig14} illustrates that soft voting performs  the best. Although soft voting results with joint probability and averaging are identical, the computational cost of averaging strategy is cheaper. Hard-voting strategies have constant computational complexity. Soft-voting improves accuracy by looking at the non-k predictions across different models. For the sake of illustration,  Fig~\ref{fig15} and Fig~\ref{fig16} show an example of the predictions of the individual models. None of the models returned the right prediction as the first prediction, but it was in the top-5 predictions for most models. Their collective prediction (the model ensemble) could return it as the first prediction.
+
+\begin{figure}[!h]
+  \caption{{\bf Comparison between aggregation method for the best performing combinations. } {\bf A}: CVUSA and {\bf B} CVACT.  The dark bar is the best performing aggregation method. Soft voting outperforms other methods across all r@k metrics for both datasets.}
+  \centering
+  \includegraphics[width=0.9\linewidth]{fig14.tiff.png}
+  \label{fig14}
+\end{figure}
+
+\begin{figure}[!h]
+  \caption{{\bf An example that shows the Mixed Model architecture r@(1 - 5) compared to the individual models on the CVUSA dataset.} The true satellite has a red border.}
+  \centering
+  \includegraphics[width=0.9\linewidth]{fig15.tiff.png}
+  \label{fig15}
+\end{figure}
+
+\begin{figure}[!h]
+  \caption{{\bf An example that shows the Mixed Model architecture r@(1 - 5) compared to the individual models on the CVACT dataset.}  The true satellite has a red border.}
+  \centering
+  \includegraphics[width=0.9\linewidth]{fig16.tiff.png}
+  \label{fig16}
+\end{figure}
 \nolinenumbers
 
 % Either type in your references using
