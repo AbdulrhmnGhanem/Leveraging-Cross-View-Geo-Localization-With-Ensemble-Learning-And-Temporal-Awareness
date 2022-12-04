@@ -1,0 +1,69 @@
+Hand-crafted
+SIFT
+[20] [26]
+Hand-crafted
+SURF, FREAK, PHOW
+[20]
+Hand-crafted
+SIFT + VLAD
+[7]
+Semantic
+Faster R-CNN
+[32]
+CNN
+VGG + FCN + NetVLAD
+[36] [22] [14]
+CNN
+AlexNet
+[37] [32]
+CNN
+VGG
+[21] [4] [13]
+CNN
+ResNet
+[4] [21] [41]
+CNN
+DenseNet
+[4] [21]
+CNN
+U-net
+[4]
+CNN
+Xception
+[21]
+CNN
+-
+[44]
+CNN
+VGG + FCN
+[43]
+Attentive
+Siam-FCANet (ResNet + FCAM + FCN)
+[45]
+Attentive
+Siam-VFCNet (ResNet + FCAM + NetVLAD)
+[45]
+Attentive
+VGG + SAFA + SPE
+[46] [47] [17]
+Attentive
+VGG + Geo Attention + Geo-temporal Attention
+[24]
+Attentive
+ResNet + Self Cross Attention
+[8]
+Attentive
+SAFA
+[5]
+Attentive
+ResNet + SAFA
+[18]
+Attentive
+ResNet + Self Cross Attention
+[19]
+Attentive
+VGG + MSAE
+[49]
+Synthesized
+X-Fork
+[50]
