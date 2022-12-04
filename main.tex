@@ -72,6 +72,8 @@
 % % % % % % % % % % % % % % % % % % % % % % % %
 
 \documentclass[10pt,letterpaper]{article}
+\usepackage{booktabs, makecell}
+
 \usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
 
 % amsmath and amssymb packages, useful for mathematical formulas and symbols
@@ -251,8 +253,46 @@ Although the existing datasets aren't suitable for conducting experiments to pro
 
 The rest of the paper is organized as follows. Section II presents the related work. Section III discusses the details of the methodology and the experimental work. We conclude the paper in Section IV.
 
-\section*{Materials and methods}
-\subsection*{Etiam eget sapien nibh}
+\section*{Related work}
+In section (A), we start by investigating how different models engineered their features and architectures. Their choices show us how different models tried to approach the problem from different angles. Followed by giving a bird-eye-view of the architectures of these models and feature extraction methods. In section (B), we walk through the models that tried blending the trip history into the image-matching task. By grouping the models into two categories: one that relies on "this place looks familiar" in section (B.1), and one that relies on "where have we been before getting here?" in section (B.2).
+\subsection*{A) Features and architectures}
+Most of the recent work treated the cross-view geo-localization task as an image retrieval task. They tried to find a feature representation suitable for matching query ground images and aerial ground images. The nature and complexity of used networks changed over time. Here, we conduct a brief comparison between the most common feature representations and their architectures. Table~\ref{table1} summarizes the feature types and the backbones of different cross-view geo-localization networks.
+
+% Place tables after the first paragraph in which they are cited.
+\begin{table}[!ht]
+  \centering
+  \caption{
+  {\bf A summary of the feature types and the backbones of different cross-view geo-localization networks.}}
+  \begin{tabular}{@{}lllll@{}}
+  \toprule
+  & {\bf Feature type} & {\bf Backbone} & {\bf Used in}&  \\ \midrule
+  & Hand-crafted & SIFT & ~\cite{bib20}~\cite{bib26}& \\
+  & Hand-crafted & SURF, FREAK, PHOW & ~\cite{bib20}& \\
+  & Hand-crafted & SIFT + VLAD & ~\cite{bib7}& \\
+  & Semantic & Faster R-CNN & ~\cite{bib32}& \\
+  & CNN & VGG + FCN + NetVLAD & ~\cite{bib36}~\cite{bib22}~\cite{bib14}& \\
+  & CNN & AlexNet & ~\cite{bib37}~\cite{bib32}& \\
+  & CNN & VGG & ~\cite{bib21}~\cite{bib4}~\cite{bib13}& \\
+  & CNN & ResNet & ~\cite{bib4}~\cite{bib21}~\cite{bib41}& \\
+  & CNN & DenseNet & ~\cite{bib4}~\cite{bib21}& \\
+  & CNN & U-net & ~\cite{bib4}& \\
+  & CNN & Xception & ~\cite{bib21}& \\
+  & CNN & - & ~\cite{bib44}& \\
+  & CNN & VGG + FCN & ~\cite{bib43}& \\
+  & Attentive & Siam-FCANet (ResNet + FCAM + FCN) & ~\cite{bib45}& \\
+  & Attentive & Siam-VFCNet (ResNet + FCAM + NetVLAD) & ~\cite{bib45}& \\
+  & Attentive & VGG + SAFA + SPE & ~\cite{bib46}~\cite{bib47}~\cite{bib17}& \\
+  & Attentive & VGG + Geo Attention + Geo-temporal Attention & ~\cite{bib24}& \\
+  & Attentive & ResNet + Self Cross Attention & ~\cite{bib8}& \\
+  & Attentive & SAFA & ~\cite{bib5}& \\
+  & Attentive & ResNet + SAFA & ~\cite{bib18}& \\
+  & Attentive & ResNet + Self Cross Attention & ~\cite{bib19}& \\
+  & Attentive & VGG + MSAE & ~\cite{bib49}& \\
+  & Synthesized & X-Fork & ~\cite{bib50}& \\ \bottomrule
+  \end{tabular}
+  \label{table1}
+\end{table}
+
 
 % For figure citations, please use "Fig" instead of "Figure".
 Nulla mi mi, Fig~\ref{fig1} venenatis sed ipsum varius, volutpat euismod diam. Proin rutrum vel massa non gravida. Quisque tempor sem et dignissim rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at justo vitae nulla elementum commodo eu id massa. In vitae diam ac augue semper tincidunt eu ut eros. Fusce fringilla erat porttitor lectus cursus, \nameref{S1_Video} vel sagittis arcu lobortis. Aliquam in enim semper, aliquam massa id, cursus neque. Praesent faucibus semper libero.
@@ -266,7 +306,7 @@ Figure caption text here, please use this space for the figure panel description
 
 % Results and Discussion can be combined.
 \section*{Results}
-Nulla mi mi, venenatis sed ipsum varius, Table~\ref{table1} volutpat euismod diam. Proin rutrum vel massa non gravida. Quisque tempor sem et dignissim rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at justo vitae nulla elementum commodo eu id massa. In vitae diam ac augue semper tincidunt eu ut eros. Fusce fringilla erat porttitor lectus cursus, vel sagittis arcu lobortis. Aliquam in enim semper, aliquam massa id, cursus neque. Praesent faucibus semper libero.
+Nulla mi mi, venenatis sed ipsum varius, Table~\ref{table2} volutpat euismod diam. Proin rutrum vel massa non gravida. Quisque tempor sem et dignissim rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at justo vitae nulla elementum commodo eu id massa. In vitae diam ac augue semper tincidunt eu ut eros. Fusce fringilla erat porttitor lectus cursus, vel sagittis arcu lobortis. Aliquam in enim semper, aliquam massa id, cursus neque. Praesent faucibus semper libero.
 
 % Place tables after the first paragraph in which they are cited.
 \begin{table}[!ht]
@@ -283,7 +323,7 @@ $cell1 row3$ & cell2 row 3 & cell3 row 3 & cell4 row 3 & cell5 row 3 & cell6 row
 \end{tabular}
 \begin{flushleft} Table notes Phasellus venenatis, tortor nec vestibulum mattis, massa tortor interdum felis, nec pellentesque metus tortor nec nisl. Ut ornare mauris tellus, vel dapibus arcu suscipit sed.
 \end{flushleft}
-\label{table1}
+\label{table2}
 \end{adjustwidth}
 \end{table}
 
