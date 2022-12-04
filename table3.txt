@@ -1,0 +1,10 @@
+Capture multiple examples with different environmental conditions
+[6] [54]
+Semantic object-based data augmentation
+[8]
+Observation encoder + PCA projection
+[7]
+MCMC algorithms
+[7] [20-22]
+Sequence attention + Trajectory Smoothing Network
+[24]
