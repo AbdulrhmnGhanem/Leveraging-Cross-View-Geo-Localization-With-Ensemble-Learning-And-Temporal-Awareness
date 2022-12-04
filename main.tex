@@ -659,9 +659,33 @@ The training process took ~$192$ hours for $228$ epochs. Table~\ref{table6} show
   \includegraphics[width=0.9\linewidth]{fig17.tiff.png}
   \label{fig17}
 \end{figure}
+\FloatBarrier
+
+\subsection*{C) Plain naive history}
+Our experiments, Figure~\ref{fig18}, show that the more we look back on the history of the journey, the more accuracy improves. The algorithm has no assumptions about the current state, and its computational cost is negligible compared to generating the distance array.
+
+
+\begin{figure}[!h]
+  \caption{{\bf The effect of the number of steps we look back on the accuracy.} The accuracy converges to ~100\% after seven steps on our dataset.}
+  \includegraphics[width=0.9\linewidth]{fig18.tiff.png}
+  \label{fig18}
+\end{figure}
 
 \FloatBarrier
+
+\subsection*{D) Naive history with weak prior}
+Fig~\ref{fig19} shows that naive history with weak prior with 2 steps lookback outperforms plain naive history with 5 steps lookback. And it only takes 3 steps for naive history with a prior to converge to 100\%, compared to 7 steps (Fig~\ref{fig18}) for the plain version. 
+However promising this is, if the prior is wrong it can result in “trapping” the algorithm in the wrong state which will degrade the accuracy significantly, and this is the “naive” part of the naive history algorithm.
+
+\begin{figure}[!h]
+  \caption{{\bf The effect of weak prior on naive history.}  The accuracy of naive history improves significantly when starting with some prior knowledge about the trip starting point. The brown line(naive history with prior) and the green line (plain naive history) represent the same number of steps into the trip though the brown line shows more accurate predictions due to factoring in the weak prior.}
+  \includegraphics[width=0.9\linewidth]{fig19.tiff.png}
+  \label{fig19}
+\end{figure}
+
+
 \nolinenumbers
+\FloatBarrier
 
 % Either type in your references using
 % \begin{thebibliography}{}
