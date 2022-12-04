@@ -7,9 +7,13 @@ def cite(groups):
     ref = groups.group(1)
     
     is_range_of_refs = '-' in ref
+    is_comma_separated_refs = ',' in ref
     if is_range_of_refs:
         ref = ref.split('-')
         ref = range(int(ref[0]), int(ref[1])+1)
+        ref = ','.join(f'bib{i}' for i in ref)
+    elif is_comma_separated_refs:
+        ref = ref.split(', ')
         ref = ','.join(f'bib{i}' for i in ref)
     else:
         ref = f'bib{ref}'
@@ -30,7 +34,7 @@ def table(txt, cols_num, rows_num):
     return table_body
 
 def latexify(txt):
-    txt = re.sub(r' \[([0-9-,]+)\]', cite, txt)
+    txt = re.sub(r' \[([0-9-, ]+)\]', cite, txt)
     return txt.replace('%', '\%')
 
 
