@@ -407,7 +407,6 @@ This research investigates two different aggregation methods: soft-voting, and h
 
 \begin{figure}[!h]
 \caption{{\bf Different ensemble aggregation methods.}}
-\centering
 \includegraphics[width=0.9\linewidth]{fig1.tiff.png}
 \label{fig1}
 \end{figure}
@@ -462,7 +461,6 @@ Extract the frames at the selected timestamps using FFmpeg~\cite{bib23};\
 
 \begin{figure}[!h]
   \caption{{\bf Three examples from our dataset. For ground images, the time progresses from left to right.}}
-  \centering
   \includegraphics[width=0.9\linewidth]{fig2.tiff.png}
   \label{fig2}
 \end{figure}
@@ -471,14 +469,12 @@ We captured the aerial tiles at the midpoint of the example using the great circ
 
 \begin{figure}[!h]
   \caption{{\bf Examples of three different zoom levels for aerial tile. Markers are 10 m apart on the trajectory.}}
-  \centering
   \includegraphics[width=0.9\linewidth]{fig3.tiff.png}
   \label{fig3}
 \end{figure}
 
 \begin{figure}[!h]
   \caption{{\bf An example of different tile sizes for the same zoom level.}}
-  \centering
   \includegraphics[width=0.9\linewidth]{fig4.tiff.png}
   \label{fig4}
 \end{figure}
@@ -487,21 +483,18 @@ After extracting the frames, we removed trajectories where 30\% of the extracted
 
 \begin{figure}[!h]
   \caption{{\bf Examples of different lighting conditions in the BDD100K dataset.}}
-  \centering
   \includegraphics[width=0.9\linewidth]{fig5.tiff.png}
   \label{fig5}
 \end{figure}
 
 \begin{figure}[!h]
   \caption{{\bf An example of a blurry aerial image.}}
-  \centering
   \includegraphics[width=0.9\linewidth]{fig6.tiff.png}
   \label{fig6}
 \end{figure}
 
 \begin{figure}[!h]
   \caption{{\bf A simplified version of our data cleaning pipeline.}}
-  \centering
   % \includegraphics[width=0.9\linewidth]{fig6.tiff.png}
   \label{fig7}
 \end{figure}
@@ -572,14 +565,13 @@ Fig~\ref{fig8} and Fig~\ref{fig9} show the results of the soft-voting strategies
 
 \begin{figure}[!h]
   \caption{{\bf CVUSA combinations for the soft-voting strategies. The dark bar is the best performing combination.} The DSM, EgoTR, and Toker combination outperforms other combinations.}
-  \centering
   \includegraphics[width=0.9\linewidth]{fig8.tiff.png}
   \label{fig8}
 \end{figure}
 
 \begin{figure}[!h]
   \caption{{\bf CVACT combinations for the soft-voting strategies. The dark bar is the best performing combination.} The DSM, EgoTR, and Toker combination outperforms other combinations. }
-  \centering
+  
   \includegraphics[width=0.9\linewidth]{fig9.tiff.png}
   \label{fig9}
 \end{figure}
@@ -589,28 +581,25 @@ Fig\ref{fig10} and Fig~{fig11} show the results of hard-voting with the most acc
 
 \begin{figure}[!h]
   \caption{{\bf CVUSA combinations for hard-voting with the most accurate model prediction strategy.} The dark bar is the best performing combination. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations.}
-  \centering
   \includegraphics[width=0.9\linewidth]{fig10.tiff.png}
   \label{fig10}
 \end{figure}
 
 \begin{figure}[!h]
   \caption{{\bf CVACT combinations for hard-voting with the most accurate  model prediction strategy.} The dark bar is the best performing combination. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations.}
-  \centering
+  
   \includegraphics[width=0.9\linewidth]{fig11.tiff.png}
   \label{fig11}
 \end{figure}
 
 \begin{figure}[!h]
   \caption{{\bf CVUSA combinations for hard-voting with the random selection strategy.} The dark bar is the best performing combination. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations. }
-  \centering
   \includegraphics[width=0.9\linewidth]{fig12.tiff.png}
   \label{fig12}
 \end{figure}
 
 \begin{figure}[!h]
   \caption{{ CVACT combinations for hard-voting with the random selection strategy.}   The dark bar is the best performing combination. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations.}
-  \centering
   \includegraphics[width=0.9\linewidth]{fig13.tiff.png}
   \label{fig13}
 \end{figure}
@@ -620,21 +609,19 @@ Fig~\ref{fig14} illustrates that soft voting performs  the best. Although soft v
 
 \begin{figure}[!h]
   \caption{{\bf Comparison between aggregation method for the best performing combinations. } {\bf A}: CVUSA and {\bf B} CVACT.  The dark bar is the best performing aggregation method. Soft voting outperforms other methods across all r@k metrics for both datasets.}
-  \centering
+  
   \includegraphics[width=0.9\linewidth]{fig14.tiff.png}
   \label{fig14}
 \end{figure}
 
 \begin{figure}[!h]
   \caption{{\bf An example that shows the Mixed Model architecture r@(1 - 5) compared to the individual models on the CVUSA dataset.} The true satellite has a red border.}
-  \centering
   \includegraphics[width=0.9\linewidth]{fig15.tiff.png}
   \label{fig15}
 \end{figure}
 
 \begin{figure}[!h]
   \caption{{\bf An example that shows the Mixed Model architecture r@(1 - 5) compared to the individual models on the CVACT dataset.}  The true satellite has a red border.}
-  \centering
   \includegraphics[width=0.9\linewidth]{fig16.tiff.png}
   \label{fig16}
 \end{figure}
