@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Leveraging Cross-View Geo-Localization With Ensemble Learning And Temporal
+      Awareness
+    </title>
+    <style>
+      /***
+          The new CSS reset - version 1.7.3 (last updated 7.8.2022)
+          GitHub page: https://github.com/elad2412/the-new-css-reset
+      ***/
+
+      /*
+          Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+          - The "symbol *" part is to solve Firefox SVG sprite bug
+       */
+      *:where(
+          :not(html, iframe, canvas, img, svg, video, audio):not(
+              svg *,
+              symbol *
+            )
+        ) {
+        all: unset;
+        display: revert;
+      }
+
+      /* Preferred box-sizing value */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      /* Reapply the pointer cursor for anchor tags */
+      a,
+      button {
+        cursor: revert;
+      }
+
+      /* Remove list styles (bullets/numbers) */
+      ol,
+      ul,
+      menu {
+        list-style: none;
+      }
+
+      /* For images to not be able to exceed their container */
+      img {
+        max-width: 100%;
+      }
+
+      /* removes spacing between cells in tables */
+      table {
+        border-collapse: collapse;
+      }
+
+      /* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+      input,
+      textarea {
+        -webkit-user-select: auto;
+      }
+
+      /* revert the 'white-space' property for textarea elements on Safari */
+      textarea {
+        white-space: revert;
+      }
+
+      /* minimum style to allow to style meter element */
+      meter {
+        -webkit-appearance: revert;
+        appearance: revert;
+      }
+
+      /* reset default text opacity of input placeholder */
+      ::placeholder {
+        color: unset;
+      }
+
+      /* fix the feature of 'hidden' attribute.
+         display:revert; revert to element instead of attribute */
+      :where([hidden]) {
+        display: none;
+      }
+
+      /* revert for bug in Chromium browsers
+         - fix for the content editable attribute will work properly.
+         - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+      :where([contenteditable]:not([contenteditable="false"])) {
+        -moz-user-modify: read-write;
+        -webkit-user-modify: read-write;
+        overflow-wrap: break-word;
+        -webkit-line-break: after-white-space;
+        -webkit-user-select: auto;
+      }
+
+      /* apply back the draggable feature - exist only in Chromium and Safari */
+      :where([draggable="true"]) {
+        -webkit-user-drag: element;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 2vh 0;
+        background-color: #f4e174;
+      }
+      nav a {
+        text-decoration: none;
+        color: #624a97;
+        font-size: 20px;
+        font-weight: 600;
+        text-transform: capitalize;
+      }
+      /* color: #624a97; */
+      .hero {
+        background-image: linear-gradient(
+            62deg,
+            #624a97 34%,
+            rgba(113, 73, 151, 0.92) 39.5%,
+            rgba(126, 71, 152, 0.83) 45%,
+            rgba(139, 69, 152, 0.75) 50.5%,
+            rgba(152, 67, 152, 0.67) 56%,
+            rgba(164, 64, 151, 0.58) 61.5%,
+            rgba(176, 61, 149, 0.5) 67%,
+            rgba(189, 56, 146, 0.42) 72.5%,
+            rgba(202, 51, 140, 0.33) 78%,
+            rgba(215, 44, 130, 0.25) 83.5%,
+            rgba(228, 35, 115, 0.17) 89%,
+            rgba(255, 0, 0, 0) 100%
+          ),
+          linear-gradient(
+            208deg,
+            #f4e174 43%,
+            rgba(243, 214, 107, 0.92) 47.75%,
+            rgba(241, 203, 98, 0.83) 52.5%,
+            rgba(240, 192, 89, 0.75) 57.25%,
+            rgba(238, 181, 80, 0.67) 62%,
+            rgba(237, 169, 71, 0.58) 66.75%,
+            rgba(236, 158, 63, 0.5) 71.5%,
+            rgba(235, 145, 54, 0.42) 76.25%,
+            rgba(235, 132, 45, 0.33) 81%,
+            rgba(236, 117, 36, 0.25) 85.75%,
+            rgba(239, 99, 26, 0.17) 90.5%,
+            rgba(255, 0, 0, 0) 100%
+          );
+        height: 100vh;
+        width: auto;
+      }
+      .hero img {
+        /* Make the image take 750px of the width and aligjt it to the right */
+        width: 60vw;
+        position: absolute;
+        right: 0;
+        bottom: 2vh;
+        object-fit: cover;
+      }
+
+      .title {
+        position: absolute;
+        top: 30vh;
+        left: 3vw;
+        max-width: 50vw;
+        color: white;
+      }
+      .title h1 {
+        font-size: 50px;
+        text-transform: capitalize;
+        font-weight: 600;
+      }
+      .title p {
+        font-size: 20px;
+        font-weight: 400;
+        margin-top: 2vh;
+        max-width: 40vw;
+      }
+
+      .title a {
+        display: inline-block;
+        background-color: #f4e174;
+        color: #624a97;
+        font-size: 25px;
+        padding: 20px 20px;
+        border-radius: 30px;
+        margin-top: 5vh;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="hero">
+        <nav>
+          <a href="https://github.com/ElGarash/bdd100k-trajectories"
+            >BDD-trajectories Repo</a
+          >
+          <a
+            href="https://github.com/ElGarash/Leveraging-Cross-View-Geo-Localization-With-Ensemble-Learning-And-Temporal-Awareness"
+            >The Paper Repo</a
+          >
+        </nav>
+        <div class="title">
+          <h1>
+            Leveraging cross-view geo-localization with ensemble learning and
+            temporal awareness
+          </h1>
+          <p>
+            Our ensemble model achieves a recall accuracy R@1 of 97.74\% on the
+            CVUSA dataset and 91.43% on the CVACT dataset (surpassing the
+            current state-of-the-art). Our temporal awareness mechanism
+            converges to R@1 of ~100\% by looking at a few steps back in the
+            trip history.
+          </p>
+          <a href="https://journals.plos.org/plosone/" rel="noopener">
+            Read the paper at PLOS ONE!</a
+          >
+        </div>
+        <img src="./images/something-removebg.png" alt="image1" />
+      </div>
+    </main>
+  </body>
+</html>
