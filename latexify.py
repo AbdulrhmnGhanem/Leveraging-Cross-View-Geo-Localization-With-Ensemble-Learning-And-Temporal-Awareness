@@ -60,6 +60,12 @@ def references():
         s += '\\bibitem{bib' + str(i+1) + '}\n' + "ref" + "\n\\newblock{info} \n\n"
     print(s)
 
+def re_order_references():
+    with open('main.tex') as fp:
+        txt = fp.read()
+    refs = re.findall(r'bib([0-9]{1,2})', txt)
+    return list(dict.fromkeys(refs))
+
 if __name__ == '__main__':
     latexified = latexify(getClipboardData())
     # setClipboardData(byte(latexified))
