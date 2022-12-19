@@ -9,15 +9,6 @@
       Awareness
     </title>
     <style>
-      /***
-          The new CSS reset - version 1.7.3 (last updated 7.8.2022)
-          GitHub page: https://github.com/elad2412/the-new-css-reset
-      ***/
-
-      /*
-          Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
-          - The "symbol *" part is to solve Firefox SVG sprite bug
-       */
       *:where(
           :not(html, iframe, canvas, img, svg, video, audio):not(
               svg *,
@@ -197,6 +188,13 @@
         padding: 5vh 0;
       }
 
+      .dataset-table {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
       .dataset h2 {
         text-align: center;
         font-size: 40px;
@@ -205,11 +203,29 @@
         text-transform: capitalize;
       }
 
-      table {
-        display: block;
-        overflow-x: auto;
-        margin: auto;
-        width: 80vw;
+      .dataset table {
+        margin-top: 3vh;
+        width: 500px;
+      }
+
+      .dataset table thead {
+        background-color: #624a97;
+        color: white;
+        border: none;
+      }
+
+      .dataset table tr td,
+      .dataset table tr th {
+        font-size: 20px;
+      }
+
+      .dataset table tr th {
+        font-size: 20px;
+        text-align: center;
+      }
+
+      .dataset table tr td:nth-child(2) {
+        text-align: right;
       }
 
       .tg {
@@ -217,29 +233,23 @@
         border-spacing: 0;
       }
       .tg td {
-        border-color: black;
-        border-style: solid;
-        border-width: 1px;
-        font-family: Arial, sans-serif;
+        border: none;
         font-size: 14px;
         overflow: hidden;
         padding: 10px 5px;
         word-break: normal;
+        color: #624a97;
       }
       .tg th {
-        border-color: black;
+        border: none;
         border-style: solid;
-        border-width: 1px;
+        border-width: 0.5px;
         font-family: Arial, sans-serif;
         font-size: 14px;
         font-weight: normal;
         overflow: hidden;
         padding: 10px 5px;
         word-break: normal;
-      }
-      .tg .tg-0lax {
-        text-align: left;
-        vertical-align: top;
       }
     </style>
   </head>
@@ -275,72 +285,333 @@
       </div>
       <div class="dataset">
         <h2>The Dataset</h2>
-        <table class="tg">
-          <thead>
-            <tr>
-              <th class="tg-0lax">Part</th>
-              <th class="tg-0lax">Size</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-            </tr>
-            <tr>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-            </tr>
-            <tr>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-            </tr>
-            <tr>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-            </tr>
-            <tr>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-            </tr>
-            <tr>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-            </tr>
-            <tr>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-            </tr>
-            <tr>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-            </tr>
-            <tr>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-            </tr>
-            <tr>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-            </tr>
-            <tr>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-            </tr>
-            <tr>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-            </tr>
-            <tr>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-            </tr>
-            <tr>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="dataset-table">
+          <table class="tg">
+            <thead>
+              <tr>
+                <th class="tg-0lax">Part</th>
+                <th class="tg-0lax">Size (bytes)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-0-1.tar.gz"
+                    >frames-0-1.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2990920667</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-2-3.tar.gz"
+                    >frames-2-3.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">3033283137</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-4-5.tar.gz"
+                    >frames-4-5.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2873286968</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-6-7.tar.gz"
+                    >frames-6-7.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">3008210357</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-8-9.tar.gz"
+                    >frames-8-9.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">3035643872</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-10-11.tar.gz"
+                    >frames-10-11.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2956509419</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-12-13.tar.gz"
+                    >frames-12-13.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2910116893</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-14-15.tar.gz"
+                    >frames-14-15.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">3071527083</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-16-17.tar.gz"
+                    >frames-16-17.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2721694666</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-18-19.tar.gz"
+                    >frames-18-19.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2823524487</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-20-21.tar.gz"
+                    >frames-20-21.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2863151433</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-22-23.tar.gz"
+                    >frames-22-23.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2751485801</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-24-25.tar.gz"
+                    >frames-24-25.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">3010295833</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-26-27.tar.gz"
+                    >frames-26-27.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2938125863</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-28-29.tar.gz"
+                    >frames-28-29.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">3050952509</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-30-31.tar.gz"
+                    >frames-30-31.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2840059334</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-32-33.tar.gz"
+                    >frames-32-33.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2850460900</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-34-35.tar.gz"
+                    >frames-34-35.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2852541912</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-36-37.tar.gz"
+                    >frames-36-37.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2978403276</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-38-39.tar.gz"
+                    >frames-38-39.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2844187097</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-40-41.tar.gz"
+                    >frames-40-41.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">3030386871</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-42-43.tar.gz"
+                    >frames-42-43.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2933383410</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-44-45.tar.gz"
+                    >frames-44-45.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2702492456</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-46-47.tar.gz"
+                    >frames-46-47.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">4466421490</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-48-49.tar.gz"
+                    >frames-48-49.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">3041822052</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-50-51.tar.gz"
+                    >frames-50-51.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">4753630197</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-52-53.tar.gz"
+                    >frames-52-53.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2828562784</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-54-55.tar.gz"
+                    >frames-54-55.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">4404205681</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-56-57.tar.gz"
+                    >frames-56-57.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2857631062</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-58-59.tar.gz"
+                    >frames-58-59.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">4786554303</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-60-61.tar.gz"
+                    >frames-60-61.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">4712586400</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-62-63.tar.gz"
+                    >frames-62-63.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2942886656</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-64-65.tar.gz"
+                    >frames-64-65.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2899517692</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-66-67.tar.gz"
+                    >frames-66-67.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2866742107</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-68-69.tar.gz"
+                    >frames-68-69.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">3133610864</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </main>
   </body>
