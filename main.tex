@@ -579,186 +579,335 @@ However promising this is, if the prior is wrong it can result in “trapping”
 In this work, we paved the way to use this dataset to build an end-to-end model that exploits the temporal correlation during a single trip, and fuses other data modalities and sources during querying and training by preparing a dataset suitable for this task. Also, we can see there is room for analyzing different state-of-art models to identify the most promising building modules and then use the network architecture search (NAS) paradigm to develop an optimal CV matching network. We anticipate that this study will kick-start the development of deployable cross-view geo-localization models, exploring fusing other data modalities and sources during querying and training. And we believe there is a great gap for real-time, weather condition-averse models that can initiate many research points.
 
 \nolinenumbers
-\FloatBarrier
 
-% Either type in your references using
-% \begin{thebibliography}{}
-% \bibitem{}
-% Text
-% \end{thebibliography}
-%
-% or
-%
-% Compile your BiBTeX database using our plos2015.bst
-% style file and paste the contents of your .bbl file
-% here. See http://journals.plos.org/plosone/s/latex for 
-% step-by-step instructions.
-% 
 \begin{thebibliography}{10}
+
   \bibitem{bib1}
-  Ben-Moshe, Boaz, et al. "Improving Accuracy of GNSS Devices in Urban Canyons." CCCG. 2011.
-
+  Ben-Moshe B, Elkin E, Levi H, Weissman A.
+  \newblock Improving Accuracy of GNSS Devices in Urban Canyons.
+  \newblock In: CCCG; 2011. p. 511--515.
+  
   \bibitem{bib2}
-  M. Zhai, Z. Bessinger, S. Workman, and N. Jacobs, “Predicting ground-level scene layout from aerial imagery,” in IEEE Conference on Computer Vision and Pattern Recognition, 2017
-
+  Zhai M, Bessinger Z, Workman S, Jacobs N.
+  \newblock Predicting ground-level scene layout from aerial imagery.
+  \newblock In: Proceedings of the IEEE Conference on Computer Vision and Pattern
+    Recognition; 2017. p. 867--875.
+  
   \bibitem{bib3}
-  Tingyu Wang, Zhedong Zheng, Chenggang Yan, and Yi Yang. Each part matters: Local patterns facilitate cross-view geo-localization. arXiv preprint arXiv:2008.11646, 2020
-
+  Wang T, Zheng Z, Yan C, Zhang J, Sun Y, Zheng B, et~al.
+  \newblock Each part matters: Local patterns facilitate cross-view
+    geo-localization.
+  \newblock IEEE Transactions on Circuits and Systems for Video Technology.
+    2021;32(2):867--879.
+  
   \bibitem{bib25}
-  Wei‐liang, Z., et al.: Comprehensive review of autonomous taxi dispatching systems. Computer Science. 47(5), 9 (2020)
-
+  Zeng W, Wu M, Sun W, Xie S.
+  \newblock Comprehensive review of autonomous taxi dispatching systems.
+  \newblock Comput Sci. 2020;47(05):181--189.
+  
   \bibitem{bib37}
-  Võ, Nam \& Hays, James. (2016). Localizing and Orienting Street Views Using Overhead Imagery. 9905. 494-509. 10.1007/978-3-319-46448-0\_30.
-
+  Vo NN, Hays J.
+  \newblock Localizing and orienting street views using overhead imagery.
+  \newblock In: European conference on computer vision. Springer; 2016. p.
+    494--509.
+  
   \bibitem{bib6}
-  Churchill, W., Newman, P.: Experience-based navigation for long-term localisation. The International Journal of Robotics Research (2013)
-
+  Churchill W, Newman P.
+  \newblock Experience-based navigation for long-term localisation.
+  \newblock The International Journal of Robotics Research.
+    2013;32(14):1645--1661.
+  
   \bibitem{bib7}
-  A.-D. Doan, Y. Latif, T.-J. Chin, Y. Liu, S. F. Ch’ng, T.-T. Do, and I. Reid, “Visual localization under appearance change: A filtering approach,” 2019 Digital Image Computing: Techniques and Applications (DICTA), pp. 1–8, 2019.
-
+  Doan AD, Latif Y, Chin TJ, Liu Y, Ch’ng SF, Do TT, et~al.
+  \newblock Visual localization under appearance change: filtering approaches.
+  \newblock Neural Computing and Applications. 2021;33(13):7325--7338.
+  
   \bibitem{bib8}
-  Royston Rodrigues and Masahiro Tani. Are these from the same place? seeing the unseen in cross-view image geo- localization. In Proceedings of the IEEE/CVF Winter Con ference on Applications of Computer Vision (WACV), pages 3753–3761, January 2021.
-
+  Rodrigues R, Tani M.
+  \newblock Are these from the same place? seeing the unseen in cross-view image
+    geo-localization.
+  \newblock In: Proceedings of the IEEE/CVF Winter Conference on Applications of
+    Computer Vision; 2021. p. 3753--3761.
+  
   \bibitem{bib9}
-  Doan, A.D., Latif, Y., Chin, T.J., Liu, Y., Do, T.T., Reid, I.: Scalable place recog-nition under appearance change for autonomous driving. In: ICCV (2019)
-
+  Doan AD, Latif Y, Chin TJ, Liu Y, Do TT, Reid I.
+  \newblock Scalable place recognition under appearance change for autonomous
+    driving.
+  \newblock In: Proceedings of the IEEE/CVF International Conference on Computer
+    Vision; 2019. p. 9319--9328.
+  
   \bibitem{bib10}
-  Milford, M. J., Wyeth, G. F., 2012. SeqSLAM: Visual route-based navigation for sunny summer days and stormy winter nights. Proceedings of the IEEE International Conference on Robotics and Automation (ICRA), 1643–1649.
- 
+  Milford MJ, Wyeth GF.
+  \newblock SeqSLAM: Visual route-based navigation for sunny summer days and
+    stormy winter nights.
+  \newblock In: 2012 IEEE international conference on robotics and automation.
+    IEEE; 2012. p. 1643--1649.
+  
   \bibitem{bib4}
-  L. Liu and H. Li, “Lending orientation to neural networks for cross-view geo-localization,” in IEEE Conference on Computer Vision and Pattern Recognition, 2019.
-
+  Liu L, Li H.
+  \newblock Lending orientation to neural networks for cross-view
+    geo-localization.
+  \newblock In: Proceedings of the IEEE/CVF Conference on Computer Vision and
+    Pattern Recognition; 2019. p. 5624--5633.
+  
   \bibitem{bib20}
-  Regmi, Krishna, "Exploring Relationships Between Ground and Aerial Views by Synthesis and Matching" (2021). Electronic Theses and Dissertations, 2020-. 747
-
+  Regmi K.
+  \newblock Exploring Relationships Between Ground and Aerial Views by Synthesis
+    and Matching. 2021;.
+  
   \bibitem{bib21}
-  Hu, Sixing \& Lee, Gim. (2019). Image-Based Geo-Localization Using Satellite Imagery. 
-
+  Hu S, Lee GH.
+  \newblock Image-based geo-localization using satellite imagery.
+  \newblock International Journal of Computer Vision. 2020;128(5):1205--1219.
+  
   \bibitem{bib22}
-  Dixit, Deeksha \& Tokekar, Pratap. (2020). Evaluation of Cross-View Matching to Improve Ground Vehicle Localization with Aerial Perception.
-
+  Dixit D, Verma S, Tokekar P.
+  \newblock Evaluation of Cross-View Matching to Improve Ground Vehicle
+    Localization with Aerial Perception.
+  \newblock arXiv preprint arXiv:200306515. 2020;.
+  
   \bibitem{bib24}
-   K. Regmi and M. Shah, "Video Geo-Localization Employing Geo-Temporal Feature Learning and GPS Trajectory Smoothing," 2021 IEEE/CVF International Conference on Computer Vision (ICCV), 2021, pp. 12106-12115, doi: 10.1109/ICCV48922.2021.01191.
+  Regmi K, Shah M.
+  \newblock Video geo-localization employing geo-temporal feature learning and
+    gps trajectory smoothing.
+  \newblock In: Proceedings of the IEEE/CVF International Conference on Computer
+    Vision; 2021. p. 12126--12135.
   
   \bibitem{bib55}
-   S. Workman, R. Souvenir, and N. Jacobs. Wide-area image geolocalization with aerial reference imagery. In ICCV, 2015. 1, 2, 4.
+  Workman S, Souvenir R, Jacobs N.
+  \newblock Wide-area image geolocalization with aerial reference imagery.
+  \newblock In: Proceedings of the IEEE International Conference on Computer
+    Vision; 2015. p. 3961--3969.
   
   \bibitem{bib5}
-   S. Zhu, T. Yang, and C. Chen, “Vigor: Cross-view image geo-localization beyond one-to-one retrieval,” 2020, arXiv:2011.12172.
+  Zhu S, Yang T, Chen C.
+  \newblock Vigor: Cross-view image geo-localization beyond one-to-one retrieval.
+  \newblock In: Proceedings of the IEEE/CVF Conference on Computer Vision and
+    Pattern Recognition; 2021. p. 3640--3649.
   
   \bibitem{bib12}
-   Fisher Yu, Haofeng Chen, Xin Wang, Wenqi Xian, Yingying Chen, Fangchen Liu, Vashisht Madhavan, and Trevor Darrell. Bdd100k: A diverse driving dataset for heterogeneous multitask learning. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition, pages 2636–2645, 2020.
+  Yu F, Chen H, Wang X, Xian W, Chen Y, Liu F, et~al.
+  \newblock Bdd100k: A diverse driving dataset for heterogeneous multitask
+    learning.
+  \newblock In: Proceedings of the IEEE/CVF conference on computer vision and
+    pattern recognition; 2020. p. 2636--2645.
   
   \bibitem{bib26}
-   Mequanint, Eyasu \& Tesfaye, Yonatan \& Idrees, Haroon \& Prati, Andrea \& Pelillo, Marcello \& Shah, Mubarak. (2017). Large-Scale Image Geo-Localization Using Dominant Sets. IEEE Transactions on Pattern Analysis and Machine Intelligence. 41. 10.1109/TPAMI.2017.2787132. 
+  Zemene E, Tesfaye YT, Idrees H, Prati A, Pelillo M, Shah M.
+  \newblock Large-scale image geo-localization using dominant sets.
+  \newblock IEEE transactions on pattern analysis and machine intelligence.
+    2018;41(1):148--161.
   
-   \bibitem{bib32}
-   Y. Tian, C. Chen and M. Shah, "Cross-View Image Matching for Geo-Localization in Urban Environments," 2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2017, pp. 1998-2006, doi: 10.1109/CVPR.2017.216.
-
+  \bibitem{bib32}
+  Tian Y, Chen C, Shah M.
+  \newblock Cross-view image matching for geo-localization in urban environments.
+  \newblock In: Proceedings of the IEEE Conference on Computer Vision and Pattern
+    Recognition; 2017. p. 3608--3616.
+  
   \bibitem{bib36}
-   S. Hu, M. Feng, R. M. H. Nguyen and G. H. Lee, "CVM-Net: Cross-View Matching Network for Image-Based Ground-to-Aerial Geo-Localization," 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2018, pp. 7258-7267, doi: 10.1109/CVPR.2018.00758.
+  Hu S, Feng M, Nguyen RM, Lee GH.
+  \newblock Cvm-net: Cross-view matching network for image-based ground-to-aerial
+    geo-localization.
+  \newblock In: Proceedings of the IEEE Conference on Computer Vision and Pattern
+    Recognition; 2018. p. 7258--7267.
   
   \bibitem{bib14}
-   J. Wang, Y. Yang, M. Pan, M. Zhang, M. Zhu and M. Fu, "Hybrid Perspective Mapping: Align Method for Cross-View Image-Based Geo-Localization," 2021 IEEE International Intelligent Transportation Systems Conference (ITSC), 2021, pp. 3040-3046, doi: 10.1109/ITSC48978.2021.9564573.
+  Wang J, Yang Y, Pan M, Zhang M, Zhu M, Fu M.
+  \newblock Hybrid Perspective Mapping: Align Method for Cross-View Image-Based
+    Geo-Localization.
+  \newblock In: 2021 IEEE International Intelligent Transportation Systems
+    Conference (ITSC). IEEE; 2021. p. 3040--3046.
   
   \bibitem{bib13}
-   Yujiao Shi, Xin Yu, Dylan Campbell, and Hongdong Li. Where am i looking at? joint location and orientation estimation by cross-view matching. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 4064–4072, 2020.
+  Shi Y, Yu X, Campbell D, Li H.
+  \newblock Where am i looking at? joint location and orientation estimation by
+    cross-view matching.
+  \newblock In: Proceedings of the IEEE/CVF Conference on Computer Vision and
+    Pattern Recognition; 2020. p. 4064--4072.
   
   \bibitem{bib41}
-   Abonce, Obed \& Zhou, Mengjie \& Calway, Andrew. (2019). You Are Here: Geolocation by Embedding Maps and Images.
+  Samano N, Zhou M, Calway A.
+  \newblock You are here: Geolocation by embedding maps and images.
+  \newblock In: European Conference on Computer Vision. Springer; 2020. p.
+    502--518.
   
-   \bibitem{bib44}
-   Shi, Yujiao \& Yu, Xin \& Liu, Liu \& Zhang, Tong \& Li, Hongdong. (2019). Optimal Feature Transport for Cross-View Image Geo-Localization. 
+  \bibitem{bib44}
+  Shi Y, Yu X, Liu L, Zhang T, Li H.
+  \newblock Optimal feature transport for cross-view image geo-localization.
+  \newblock In: Proceedings of the AAAI Conference on Artificial Intelligence.
+    vol.~34; 2020. p. 11990--11997.
   
   \bibitem{bib43}
-  S. Zhu, T. Yang and C. Chen, "Revisiting Street-to-Aerial View Image Geo-localization and Orientation Estimation," 2021 IEEE Winter Conference on Applications of Computer Vision (WACV), 2021, pp. 756-765, doi: 10.1109/WACV48630.2021.00080.
-
+  Zhu S, Yang T, Chen C.
+  \newblock Revisiting street-to-aerial view image geo-localization and
+    orientation estimation.
+  \newblock In: Proceedings of the IEEE/CVF Winter Conference on Applications of
+    Computer Vision; 2021. p. 756--765.
+  
   \bibitem{bib45}
-  S. Cai, Y. Guo, S. Khan, J. Hu and G. Wen, "Ground-to-Aerial Image Geo-Localization With a Hard Exemplar Reweighting Triplet Loss," 2019 IEEE/CVF International Conference on Computer Vision (ICCV), 2019, pp. 8390-8399, doi: 10.1109/ICCV.2019.00848.
-
+  Cai S, Guo Y, Khan S, Hu J, Wen G.
+  \newblock Ground-to-aerial image geo-localization with a hard exemplar
+    reweighting triplet loss.
+  \newblock In: Proceedings of the IEEE/CVF International Conference on Computer
+    Vision; 2019. p. 8391--8400.
+  
   \bibitem{bib46}
-  Yujiao Shi, Liu Liu, Xin Yu, and Hongdong Li. 2019. Spatial-aware feature aggregation for cross-view image based geo-localization. Proceedings of the 33rd International Conference on Neural Information Processing Systems. Curran Associates Inc., Red Hook, NY, USA, Article 905, 10090–10100.
-
+  Shi Y, Liu L, Yu X, Li H.
+  \newblock Spatial-aware feature aggregation for image based cross-view
+    geo-localization.
+  \newblock Advances in Neural Information Processing Systems. 2019;32.
+  
   \bibitem{bib47}
-  Xia, Zimin \& Booij, Olaf \& Manfredi, Marco \& Kooij, Julian. (2020). Geographically Local Representation Learning with a Spatial Prior for Visual Localization. 10.1007/978-3-030-66096-3\_38.
-
+  Xia Z, Booij O, Manfredi M, Kooij JF.
+  \newblock Geographically local representation learning with a spatial prior for
+    visual localization.
+  \newblock In: European Conference on Computer Vision. Springer; 2020. p.
+    557--573.
+  
   \bibitem{bib17}
-  Z. Xia, O. Booij, M. Manfredi and J. F. P. Kooij, "Cross-View Matching for Vehicle Localization by Learning Geographically Local Representations," in IEEE Robotics and Automation Letters, vol. 6, no. 3, pp. 5921-5928, July 2021, doi: 10.1109/LRA.2021.3088076.
-
+  Xia Z, Booij O, Manfredi M, Kooij JF.
+  \newblock Cross-View Matching for Vehicle Localization by Learning
+    Geographically Local Representations.
+  \newblock IEEE Robotics and Automation Letters. 2021;6(3):5921--5928.
+  
   \bibitem{bib18}
-  A. Toker, Q. Zhou, M. Maximov and L. Leal-Taixé, "Coming Down to Earth: Satellite-to-Street View Synthesis for Geo-Localization," 2021 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2021, pp. 6484-6493, doi: 10.1109/CVPR46437.2021.00642.
-
+  Toker A, Zhou Q, Maximov M, Leal-Taix{\'e} L.
+  \newblock Coming down to earth: Satellite-to-street view synthesis for
+    geo-localization.
+  \newblock In: Proceedings of the IEEE/CVF Conference on Computer Vision and
+    Pattern Recognition; 2021. p. 6488--6497.
+  
   \bibitem{bib19}
-  Yang, Hongji \& Lu, Xiufan \& Zhu, Yingying. (2021). Cross-view Geo-localization with Evolving Transformer.
-
+  Yang H, Lu X, Zhu Y.
+  \newblock Cross-view geo-localization with evolving transformer.
+  \newblock arXiv preprint arXiv:210700842. 2021;.
+  
   \bibitem{bib49}
-  Li, S., et al.: Multi-scale attention encoder for street-to-aerial image geo-localization. CAAI Trans. Intell. Technol. 1– 11 (2022).
-
+  Li S, Tu Z, Chen Y, Yu T.
+  \newblock Multi-scale attention encoder for street-to-aerial image
+    geo-localization.
+  \newblock CAAI Transactions on Intelligence Technology. 2022;.
+  
   \bibitem{bib50}
-  K. Regmi and M. Shah, "Bridging the Domain Gap for Ground-to-Aerial Image Matching," 2019 IEEE/CVF International Conference on Computer Vision (ICCV), 2019, pp. 470-479, doi: 10.1109/ICCV.2019.00056.
-
+  Regmi K, Shah M.
+  \newblock Bridging the domain gap for ground-to-aerial image matching.
+  \newblock In: Proceedings of the IEEE/CVF International Conference on Computer
+    Vision; 2019. p. 470--479.
+  
   \bibitem{bib27}
-  Lowe, D.G. Distinctive Image Features from Scale-Invariant Keypoints. International Journal of Computer Vision 60, 91–110 (2004).
-
+  Lowe DG.
+  \newblock Distinctive image features from scale-invariant keypoints.
+  \newblock International journal of computer vision. 2004;60(2):91--110.
+  
   \bibitem{bib28}
-  Bay, Herbert \& Tuytelaars, Tinne \& Van Gool, Luc. (2006). SURF: Speeded up robust features. Computer Vision-ECCV 2006. 3951. 404-417. 10.1007/11744023\_32.
-
+  Bay H, Tuytelaars T, Gool LV.
+  \newblock Surf: Speeded up robust features.
+  \newblock In: European conference on computer vision. Springer; 2006. p.
+    404--417.
+  
   \bibitem{bib29}
-  Alahi, Alexandre \& Ortiz, Raphael \& Vandergheynst, Pierre. (2012). FREAK: Fast retina keypoint. Proceedings of the IEEE Computer Society Conference on Computer Vision and Pattern Recognition. 510-517. 10.1109/CVPR.2012.6247715. 
-
+  Alahi A, Ortiz R, Vandergheynst P.
+  \newblock Freak: Fast retina keypoint.
+  \newblock In: 2012 IEEE conference on computer vision and pattern recognition.
+    Ieee; 2012. p. 510--517.
+  
   \bibitem{bib30}
-  Zisserman, Andrew \& Muñoz, Xavier. (2007). Image Classification using Random Forests and Ferns. ICCV. 1-8. 10.1109/ICCV.2007.4409066. 
-
+  Bosch A, Zisserman A, Munoz X.
+  \newblock Image Classification using Random Forests and Ferns.
+  \newblock In: 2007 IEEE 11th International Conference on Computer Vision; 2007.
+    p. 1--8.
+  
   \bibitem{bib31}
-  Simonyan, Karen \& Zisserman, Andrew. (2014). Very Deep Convolutional Networks for Large-Scale Image Recognition. arXiv 1409.1556. 
-
+  Simonyan K, Zisserman A.
+  \newblock Very deep convolutional networks for large-scale image recognition.
+  \newblock arXiv preprint arXiv:14091556. 2014;.
+  
   \bibitem{bib33}
-  Ren, Shaoqing \& He, Kaiming \& Girshick, Ross \& Sun, Jian. (2015). Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks. IEEE Transactions on Pattern Analysis and Machine Intelligence. 39. 10.1109/TPAMI.2016.2577031. 
-
+  Ren S, He K, Girshick R, Sun J.
+  \newblock Faster r-cnn: Towards real-time object detection with region proposal
+    networks.
+  \newblock Advances in neural information processing systems. 2015;28.
+  
   \bibitem{bib34}
-  Krizhevsky, Alex \& Sutskever, Ilya \& Hinton, Geoffrey. (2012). ImageNet Classification with Deep Convolutional Neural Networks. Neural Information Processing Systems. 25. 10.1145/3065386. 
-
+  Krizhevsky A, Sutskever I, Hinton GE.
+  \newblock Imagenet classification with deep convolutional neural networks.
+  \newblock Communications of the ACM. 2017;60(6):84--90.
+  
   \bibitem{bib35}
-  S. Chopra, R. Hadsell and Y. LeCun, "Learning a similarity metric discriminatively, with application to face verification," 2005 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR'05), 2005, pp. 539-546 vol. 1, doi: 10.1109/CVPR.2005.202.
-
+  Chopra S, Hadsell R, LeCun Y.
+  \newblock Learning a similarity metric discriminatively, with application to
+    face verification.
+  \newblock In: 2005 IEEE Computer Society Conference on Computer Vision and
+    Pattern Recognition (CVPR'05). vol.~1. IEEE; 2005. p. 539--546.
+  
   \bibitem{bib38}
-  He, Kaiming \& Zhang, Xiangyu \& Ren, Shaoqing \& Sun, Jian. (2016). Deep Residual Learning for Image Recognition. 770-778. 10.1109/CVPR.2016.90. 
-
+  He K, Zhang X, Ren S, Sun J.
+  \newblock Deep residual learning for image recognition.
+  \newblock In: Proceedings of the IEEE conference on computer vision and pattern
+    recognition; 2016. p. 770--778.
+  
   \bibitem{bib39}
-  G. Huang, Z. Liu, L. Van Der Maaten and K. Q. Weinberger, "Densely Connected Convolutional Networks," 2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2017, pp. 2261-2269, doi: 10.1109/CVPR.2017.243.
-
+  Huang G, Liu Z, Van Der~Maaten L, Weinberger KQ.
+  \newblock Densely connected convolutional networks.
+  \newblock In: Proceedings of the IEEE conference on computer vision and pattern
+    recognition; 2017. p. 4700--4708.
+  
   \bibitem{bib40}
-  F. Chollet, "Xception: Deep Learning with Depthwise Separable Convolutions," 2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2017, pp. 1800-1807, doi: 10.1109/CVPR.2017.195.
-
+  Chollet F.
+  \newblock Xception: Deep learning with depthwise separable convolutions.
+  \newblock In: Proceedings of the IEEE conference on computer vision and pattern
+    recognition; 2017. p. 1251--1258.
+  
   \bibitem{bib42}
-  Ronneberger, Olaf \& Fischer, Philipp \& Brox, Thomas. (2015). U-Net: Convolutional Networks for Biomedical Image Segmentation. LNCS. 9351. 234-241. 10.1007/978-3-319-24574-4\_28. 
-
+  Ronneberger O, Fischer P, Brox T.
+  \newblock U-net: Convolutional networks for biomedical image segmentation.
+  \newblock In: International Conference on Medical image computing and
+    computer-assisted intervention. Springer; 2015. p. 234--241.
+  
   \bibitem{bib48}
-  Woo, S., Park, J., Lee, JY., Kweon, I.S. (2018). CBAM: Convolutional Block Attention Module. In: Ferrari, V., Hebert, M., Sminchisescu, C., Weiss, Y. (eds) Computer Vision – ECCV 2018. 
-
+  Woo S, Park J, Lee JY, Kweon IS.
+  \newblock Cbam: Convolutional block attention module.
+  \newblock In: Proceedings of the European conference on computer vision (ECCV);
+    2018. p. 3--19.
+  
   \bibitem{bib51}
-  Regmi, Krishna \& Borji, Ali. (2018). Cross-View Image Synthesis using Conditional GANs. 10.1109/CVPR.2018.00369. 
-
+  Regmi K, Borji A.
+  \newblock Cross-view image synthesis using conditional gans.
+  \newblock In: Proceedings of the IEEE conference on Computer Vision and Pattern
+    Recognition; 2018. p. 3501--3510.
+  
   \bibitem{bib52}
-  Canny, John. (1986). A Computational Approach To Edge Detection. Pattern Analysis and Machine Intelligence, IEEE Transactions on. PAMI-8. 679 - 698. 10.1109/TPAMI.1986.4767851.
-
+  Canny J.
+  \newblock A computational approach to edge detection.
+  \newblock IEEE Transactions on pattern analysis and machine intelligence.
+    1986;(6):679--698.
+  
   \bibitem{bib54}
-  Doan, Dzung \& Latif, Yasir \& Chin, Tat-Jun \& Liu, Yu \& Do, Thanh-Toan \& Reid, Ian. (2019). Scalable Place Recognition Under Appearance Change for Autonomous Driving. 9318-9327. 10.1109/ICCV.2019.00941.
-
+  Doan AD, Latif Y, Chin TJ, Liu Y, Do TT, Reid I.
+  \newblock Scalable place recognition under appearance change for autonomous
+    driving.
+  \newblock In: Proceedings of the IEEE/CVF International Conference on Computer
+    Vision; 2019. p. 9319--9328.
+  
   \bibitem{bib23}
-  FFmpeg. A complete, cross-platform solution to record, convert and stream audio and video. Ffmpeg.org
-
+  FFmpeg.org;.
+  \newblock Available from: \url{https://ffmpeg.org/}.
+  
   \bibitem{bib16}
-  Great-circle distance - Wikipedia
-
+  {Wikipedia contributors}. Great-circle distance; 2022.
+  \newblock Available from:
+    \url{https://en.wikipedia.org/wiki/Great-circle_distance}.
+  
   \bibitem{bib15}
-  Maps Static API developers.google.com/maps/documentation/maps-static/overview
-
+  Maps Static API;.
+  \newblock Available from:
+    \url{https://developers.google.com/maps/documentation/maps-static/overview}.
+  
   \bibitem{bib11}
-  Alazzawi, Abdulbasit \& Alsaadi, Husfam \& Shallal, Abidaoun \& Albawi, Saad. (2015). EDGE DETECTION-APPLICATION OF (FIRST AND SECOND) ORDER DERIVATIVE IN IMAGE PROCESSING. 
-
-  \bibitem{bib53}
-  Y. Shi, D. J. Campbell, X. Yu and H. Li, "Geometry-Guided Street-View Panorama Synthesis from Satellite Imagery," in IEEE Transactions on Pattern Analysis and Machine Intelligence, doi: 10.1109/TPAMI.2022.3140750.
+  Alazzawi A.
+  \newblock EDGE DETECTION-APPLICATION OF (FIRST AND SECOND) ORDER DERIVATIVE IN
+    IMAGE PROCESSING: Communication.
+  \newblock Diyala Journal of Engineering Sciences. 2015;8(4):430--440.
 \end{thebibliography}
 \end{document}
 
