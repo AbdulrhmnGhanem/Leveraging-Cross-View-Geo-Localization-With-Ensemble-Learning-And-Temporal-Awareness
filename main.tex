@@ -182,7 +182,7 @@ Although the existing datasets aren't suitable for conducting experiments to pro
 \begin{itemize}
     \item We introduce a new ensemble model based on five of the current state-of-the-art  cross-view matching networks. The ensemble model achieves a recall accuracy R@1 of 97.74\% on the CVUSA dataset and 91.43\% on the CVACT dataset.
     \item We construct a new derivative dataset that is suitable for temporal aware cross-view geo-localization models based on BDD100K.
-    \item We develope a meta block: Naive History, to make the query process temporal aware. We show that taking journey history into account minimizes the search space. This reduction in search space improves the accuracy.  The accuracy converges to ~100\% with a three-step lookback into trip history on our proposed dataset. This meta block is usable with any CV model.
+    \item We develope a meta block: naive history, to make the query process temporal aware. We show that taking journey history into account minimizes the search space. This reduction in search space improves the accuracy.  The accuracy converges to ~100\% with a three-step lookback into trip history on our proposed dataset. This meta block is usable with any CV model.
 \end{itemize}
 
 \section*{Related work}
@@ -546,8 +546,10 @@ The training process took $192$ hours for $228$ epochs. Table~\ref{table6} shows
   \scalebox{0.96}{
     \begin{tabular}{@{}ccccccc@{}}
     \toprule
-    & {\bf r@1 (\%)} & {\bf r@5 (\%)} & {\bf r@10 (\%)} & {\bf r@1\% (\%)} &\\ \midrule
-    & 9.99 & 9.99 & 16.72 & 66.98m & \\ \bottomrule
+    & r@{\bf 1} & r@{\bf 5} & r@{\bf 10} & r@{\bf 1\%} &\\
+    & \multicolumn{4}{c}{(\%)} \\ \midrule
+    & 9.99 & 16.72 & 21.95 & 66.58 & \\
+    \bottomrule
     \end{tabular}
   }
   \label{table6}
@@ -576,7 +578,7 @@ However promising this is, if the prior is wrong it can result in “trapping”
 \end{figure}
 
 \section*{Conclusion amd future work}
-In this work, we paved the way to use this dataset to build an end-to-end model that exploits the temporal correlation during a single trip, and fuses other data modalities and sources during querying and training by preparing a dataset suitable for this task. Also, we can see there is room for analyzing different state-of-art models to identify the most promising building modules and then use the network architecture search (NAS) paradigm to develop an optimal CV matching network. We anticipate that this study will kick-start the development of deployable cross-view geo-localization models, exploring fusing other data modalities and sources during querying and training. And we believe there is a great gap for real-time, weather condition-averse models that can initiate many research points.
+In this work, we streamlined using BDD100K so that we can build an end-to-end model that exploits the temporal correlation during a single trip. But there are no similar datasets with other data modalities which can be the solution for areas with poor lighting conditions. Also, we can see there is a room for analyzing different state-of-art models to identify the most promising building modules and then use the network architecture search (NAS) paradigm to develop an optimal CV matching network. We anticipate that this study will kick-start the development of deployable cross-view geo-localization models, exploring fusing other data modalities and sources during querying and training. Moreover we believe there is a great gap for real-time, weatherproof models that can initiate many research points.
 
 \nolinenumbers
 
@@ -910,4 +912,3 @@ In this work, we paved the way to use this dataset to build an end-to-end model 
   \newblock Diyala Journal of Engineering Sciences. 2015;8(4):430--440.
 \end{thebibliography}
 \end{document}
-
