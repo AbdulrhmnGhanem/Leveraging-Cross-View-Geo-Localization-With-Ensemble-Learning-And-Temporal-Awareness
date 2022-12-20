@@ -182,7 +182,7 @@ Although the existing datasets aren't suitable for conducting experiments to pro
 \begin{itemize}
     \item We introduce a new ensemble model based on five of the current state-of-the-art  cross-view matching networks. The ensemble model achieves a recall accuracy R@1 of 97.74\% on the CVUSA dataset and 91.43\% on the CVACT dataset.
     \item We construct a new derivative dataset that is suitable for temporal aware cross-view geo-localization models based on BDD100K.
-    \item We develope a meta block: naive history, to make the query process temporal aware. We show that taking journey history into account minimizes the search space. This reduction in search space improves the accuracy.  The accuracy converges to ~100\% with a three-step lookback into trip history on our proposed dataset. This meta block is usable with any CV model.
+    \item We develop a meta block: naive history, to make the query process temporal aware. We show that taking journey history into account minimizes the search space. This reduction in search space improves the accuracy.  The accuracy converges to ~100\% with a three-step lookback into trip history on our proposed dataset. This meta block is usable with any CV model.
 \end{itemize}
 
 \section*{Related work}
@@ -418,7 +418,7 @@ After extracting the frames, we remove trajectories where 30\% of the extracted 
 \end{figure}
 
 \subsection*{C) Naive history}
-Inspired by our experiments on the joint probability as a soft-voting strategy for ensemble learning. In a journey setting where the history of the journey is available, we hypothesize that taking the previous predictions into account might cause the prediction to converge while progressing in the journey. This hypothesis relies on the fact that even if the model doesn't return the true location as its top-1 prediction, most of the time, it is still in the top-1\% predictions. Also, the probability that a model will predict N consecutive wrong predictions decreases as N increases. Based on this, we fine-tune the EgoTR model on the new deeravative dataset (\emph{BDD-trajectories}). We use this dataset because it has trip trajectories.
+Inspired by our experiments on the joint probability as a soft-voting strategy for ensemble learning. In a journey setting where the history of the journey is available, we hypothesize that taking the previous predictions into account might cause the prediction to converge while progressing in the journey. This hypothesis relies on the fact that even if the model doesn't return the true location as its top-1 prediction, most of the time, it is still in the top-1\% predictions. Also, the probability that a model will predict N consecutive wrong predictions decreases as N increases. Based on this, we fine-tune the EgoTR model on the new deravative dataset (\emph{BDD-trajectories}). We use this dataset because it has trip trajectories.
 
 \subsubsection*{Fine-tuning EgoTR}
 The EgoTR model takes a pair of images as input: a ground image and a satellite image as its input. However, an example in our dataset consists of a hexad: five ground images and a satellite image. So we have to reshape our dataset to be suitable for the EgoTR input format. We choose the examples where there are at least two examples from the same journey, so we have 10 ground images from the same trajectory. We pair every ground image and the satellite image in the examples. This means that each example in \emph{BDD-trajectories} corresponds to five examples in the reshaped dataset. We use a subset of reshaped dataset $19015$ pairs for validation and $75985$ pairs for fine-tuning.
@@ -517,10 +517,10 @@ Fig\ref{fig10} and Fig~{fig11} show the results of hard-voting with the most acc
 \end{figure}
 
 
-Fig~\ref{fig14} illustrates that soft voting performs  the best. Although soft voting results with joint probability and averaging are identical, the computational cost of averaging strategy is cheaper. Hard-voting strategies have constant computational complexity. Soft-voting improves accuracy by looking at the {\bf top-k predictions} across different models. For the sake of illustration,  Fig~\ref{fig15} and Fig~\ref{fig16} show an example of the predictions of the individual models. None of the models returned the right prediction as the first prediction, but it was in the top-5 predictions for most models. Their collective prediction (the model ensemble) could return it as the first prediction.
+Fig~\ref{fig14} illustrates that soft voting performs the best. Although soft voting results with joint probability and averaging are identical, the computational cost of averaging strategy is cheaper. Hard-voting strategies have constant computational complexity. Soft-voting improves accuracy by looking at the {\bf top-k predictions} across different models. For the sake of illustration,  Fig~\ref{fig15} and Fig~\ref{fig16} show an example of the predictions of the individual models. None of the models returned the right prediction as the first prediction, but it was in the top-5 predictions for most models. Their collective prediction (the model ensemble) could return it as the first prediction.
 
 \begin{figure}[!h]
-  \caption{{\bf Comparison between aggregation method for the best performing combinations. } {\bf A}: CVUSA and {\bf B} CVACT.  The dark bar is the best performing aggregation method. Soft voting outperforms other methods across all r@k metrics for both datasets.}
+  \caption{{\bf Comparison between aggregation method for the best performing combinations. } {\bf A}: CVUSA and {\bf B}: CVACT.  The dark bar is the best performing aggregation method. Soft voting outperforms other methods across all r@k metrics for both datasets.}
   
   \label{fig14}
 \end{figure}
@@ -577,7 +577,7 @@ However promising this is, if the prior is wrong it can result in “trapping”
   \label{fig19}
 \end{figure}
 
-\section*{Conclusion amd future work}
+\section*{Conclusion and future work}
 In this work, we streamlined using BDD100K so that we can build an end-to-end model that exploits the temporal correlation during a single trip. But there are no similar datasets with other data modalities which can be the solution for areas with poor lighting conditions. Also, we can see there is a room for analyzing different state-of-art models to identify the most promising building modules and then use the network architecture search (NAS) paradigm to develop an optimal CV matching network. We anticipate that this study will kick-start the development of deployable cross-view geo-localization models, exploring fusing other data modalities and sources during querying and training. Moreover we believe there is a great gap for real-time, weatherproof models that can initiate many research points.
 
 \nolinenumbers
