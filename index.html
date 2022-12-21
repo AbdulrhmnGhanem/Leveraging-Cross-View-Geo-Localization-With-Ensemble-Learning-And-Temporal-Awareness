@@ -144,7 +144,7 @@
             rgba(239, 99, 26, 0.17) 90.5%,
             rgba(255, 0, 0, 0) 100%
           );
-        height: 100vh;
+        min-height: 100vh;
         width: auto;
       }
 
@@ -155,6 +155,36 @@
         right: 0;
         bottom: 2vh;
         object-fit: cover;
+      }
+
+      #hero-img-small,
+      #small-action {
+        display: none;
+      }
+
+      @media screen and (max-width: 1700px) {
+        .hero img {
+          bottom: 15vh;
+        }
+      }
+
+      @media screen and (max-width: 1500px) {
+        .hero img {
+          bottom: 27vh;
+        }
+      }
+
+      @media screen and (max-width: 1200px) {
+        .hero img {
+          bottom: 40vh;
+          width: 55vw;
+        }
+      }
+
+      @media screen and (max-width: 1000px) {
+        .hero img {
+          display: none;
+        }
       }
 
       .title {
@@ -183,9 +213,146 @@
         background-color: #f4e174;
         color: #624a97;
         font-size: 25px;
-        padding: 20px 20px;
+        padding: 10px 10px;
         border-radius: 30px;
         margin-top: 5vh;
+      }
+
+      .hero svg {
+        display: none;
+      }
+
+      @media screen and (max-width: 1700px) {
+        nav a {
+          font-size: 16px;
+        }
+
+        .title a {
+          font-size: 16px;
+        }
+
+        .title {
+          top: 20vh;
+        }
+
+        .title h1 {
+          font-size: 40px;
+        }
+
+        .title p {
+          font-size: 25px;
+        }
+      }
+
+      @media screen and (max-width: 1500px) {
+        .title h1 {
+          font-size: 35px;
+        }
+
+        .title p {
+          font-size: 20px;
+        }
+
+        .title a {
+          font-size: 20px;
+          padding: 10px 10px;
+        }
+
+        .hero svg {
+          display: block;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 20vh;
+        }
+      }
+
+      @media screen and (max-width: 1200px) {
+        .title h1 {
+          font-size: 30px;
+        }
+
+        .title p {
+          font-size: 16px;
+        }
+
+        .title a {
+          font-size: 16px;
+          padding: 8px 8px;
+        }
+
+        .hero svg {
+          height: 30vh;
+        }
+      }
+
+      @media screen and (max-width: 1000px) {
+        .title {
+          top: 15vh;
+          max-width: fit-content;
+          position: inherit;
+          max-width: inherit;
+          margin-top: 16vh;
+        }
+
+        .title h1 {
+          font-size: 30px;
+          display: block;
+          width: 60vw;
+          margin: auto;
+          text-align: center;
+        }
+
+        .title p {
+          font-size: 20px;
+          display: block;
+          width: 60vw;
+          margin: auto;
+          text-align: center;
+          max-width: 60vw;
+          position: relative;
+          padding-bottom: 2vh;
+        }
+
+        .title a {
+          display: none;
+        }
+
+        #small-action {
+          display: block;
+          margin: 5vh auto;
+          width: 80vw;
+          max-width: 250px;
+          text-align: center;
+          font-size: 16px;
+          padding: 10px 10px;
+          border-radius: 30px;
+        }
+
+        .hero svg {
+          display: none;
+        }
+
+        #hero-img-small {
+          position: inherit;
+          width: inherit;
+          height: 40vh;
+          object-fit: cover;
+          display: block;
+          margin: 4vh auto;
+        }
+      }
+
+      @media screen and (max-width: 500px) {
+        .title h1 {
+          width: 90vw;
+        }
+
+        .title p {
+          width: 90vw;
+          font-size: 16px;
+        }
       }
 
       .dataset {
@@ -208,14 +375,29 @@
         text-transform: capitalize;
       }
 
+      @media screen and (max-width: 1000px) {
+        .dataset h2 {
+          font-size: 30px;
+        }
+      }
+
       .dataset table {
         margin-top: 3vh;
         width: 500px;
       }
 
+      @media screen and (max-width: 1000px) {
+        .dataset table {
+          width: 90vw;
+        }
+      }
+
       .dataset table thead {
         background-color: #624a97;
         color: white;
+        border: none;
+      }
+      .dataset table thead th {
         border: none;
       }
 
@@ -264,6 +446,7 @@
       .license img {
         display: block;
         margin: auto;
+        margin-bottom: 10px;
       }
     </style>
   </head>
@@ -284,6 +467,18 @@
             Leveraging cross-view geo-localization with ensemble learning and
             temporal awareness
           </h1>
+          <img
+            id="hero-img-small"
+            src="./images/something-removebg.png"
+            alt="image1"
+          />
+          <a
+            id="small-action"
+            href="https://journals.plos.org/plosone/"
+            rel="noopener"
+          >
+            Read the paper at PLOS ONE!</a
+          >
           <p>
             Our ensemble model achieves a recall accuracy R@1 of 97.74% on the
             CVUSA dataset and 91.43% on the CVACT dataset (surpassing the
@@ -296,6 +491,28 @@
           >
         </div>
         <img src="./images/something-removebg.png" alt="image1" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svgjs="http://svgjs.com/svgjs"
+          width="1440"
+          height="560"
+          preserveAspectRatio="none"
+          viewBox="0 0 1440 560"
+        >
+          <g mask='url("#SvgjsMask1054")' fill="none">
+            <path
+              d="M 0,482 C 28.8,439.2 86.4,263 144,268 C 201.6,273 230.4,543.8 288,507 C 345.6,470.2 374.4,114.8 432,84 C 489.6,53.2 518.4,315.4 576,353 C 633.6,390.6 662.4,235.4 720,272 C 777.6,308.6 806.4,561.2 864,536 C 921.6,510.8 950.4,144.8 1008,146 C 1065.6,147.2 1094.4,532.2 1152,542 C 1209.6,551.8 1238.4,204.4 1296,195 C 1353.6,185.6 1411.2,435 1440,495L1440 560L0 560z"
+              fill="rgba(1, 199, 202, 1)"
+            ></path>
+          </g>
+          <defs>
+            <mask id="SvgjsMask1054">
+              <rect width="1440" height="560" fill="#ffffff"></rect>
+            </mask>
+          </defs>
+        </svg>
       </div>
       <div class="dataset">
         <h2>The Dataset</h2>
@@ -629,11 +846,16 @@
             <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"
               ><img
                 alt="Creative Commons License"
-                src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a
-            ><br />This work is licensed under a
-            <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"
-              >Creative Commons Attribution 4.0 International License</a
-            >.
+                src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+            /></a>
+            <p>
+              This work is licensed under a <br />
+              <a
+                rel="license"
+                href="http://creativecommons.org/licenses/by/4.0/"
+                >Creative Commons Attribution 4.0 International License</a
+              >.
+            </p>
           </div>
         </div>
       </div>
