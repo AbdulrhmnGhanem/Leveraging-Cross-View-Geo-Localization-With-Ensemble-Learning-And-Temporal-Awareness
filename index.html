@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Primary Meta Tags -->
+    <meta
+      name="description"
+      content="The official website of 'Leveraging Cross-View Geo-Localization With Ensemble Learning And Temporal Awareness' paper."
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://research.abdulrhmnghanem.tech/cross-view"
+    />
+    <meta
+      property="og:title"
+      content="Leveraging Cross-View Geo-Localization With Ensemble Learning And Temporal Awareness"
+    />
+    <meta
+      property="og:description"
+      content="The official website of 'Leveraging Cross-View Geo-Localization With Ensemble Learning And Temporal Awareness' paper."
+    />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/ghnem/ghnem.github.io/main/Leveraging-Cross-View-Geo-Localization-With-Ensemble-Learning-And-Temporal-Awareness/images/meta.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://research.abdulrhmnghanem.tech/cross-view"
+    />
+    <meta
+      property="twitter:title"
+      content="Leveraging Cross-View Geo-Localization With Ensemble Learning And Temporal Awareness"
+    />
+    <meta
+      property="twitter:description"
+      content="The official website of 'Leveraging Cross-View Geo-Localization With Ensemble Learning And Temporal Awareness' paper."
+    />
+    <meta
+      property="twitter:image"
+      content="https://raw.githubusercontent.com/ghnem/ghnem.github.io/main/Leveraging-Cross-View-Geo-Localization-With-Ensemble-Learning-And-Temporal-Awareness/images/meta.png"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛣</text></svg>"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>
+      Leveraging Cross-View Geo-Localization With Ensemble Learning And Temporal
+      Awareness
+    </title>
+    <style>
+      *:where(
+          :not(html, iframe, canvas, img, svg, video, audio):not(
+              svg *,
+              symbol *
+            )
+        ) {
+        all: unset;
+        display: revert;
+      }
+
+      /* Preferred box-sizing value */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      /* Reapply the pointer cursor for anchor tags */
+      a,
+      button {
+        cursor: revert;
+      }
+
+      /* Remove list styles (bullets/numbers) */
+      ol,
+      ul,
+      menu {
+        list-style: none;
+      }
+
+      /* For images to not be able to exceed their container */
+      img {
+        max-width: 100%;
+      }
+
+      /* removes spacing between cells in tables */
+      table {
+        border-collapse: collapse;
+      }
+
+      /* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+      input,
+      textarea {
+        -webkit-user-select: auto;
+      }
+
+      /* revert the 'white-space' property for textarea elements on Safari */
+      textarea {
+        white-space: revert;
+      }
+
+      /* minimum style to allow to style meter element */
+      meter {
+        -webkit-appearance: revert;
+        appearance: revert;
+      }
+
+      /* reset default text opacity of input placeholder */
+      ::placeholder {
+        color: unset;
+      }
+
+      /* fix the feature of 'hidden' attribute.
+         display:revert; revert to element instead of attribute */
+      :where([hidden]) {
+        display: none;
+      }
+
+      /* revert for bug in Chromium browsers
+         - fix for the content editable attribute will work properly.
+         - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+      :where([contenteditable]:not([contenteditable="false"])) {
+        -moz-user-modify: read-write;
+        -webkit-user-modify: read-write;
+        overflow-wrap: break-word;
+        -webkit-line-break: after-white-space;
+        -webkit-user-select: auto;
+      }
+
+      /* apply back the draggable feature - exist only in Chromium and Safari */
+      :where([draggable="true"]) {
+        -webkit-user-drag: element;
+      }
+
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
+
+      nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 2vh 0;
+        background-color: #f4e174;
+      }
+      nav a {
+        text-decoration: none;
+        color: #624a97;
+        font-size: 20px;
+        font-weight: 600;
+        text-transform: capitalize;
+      }
+      /* color: #624a97; */
+      .hero {
+        background-image: linear-gradient(
+            62deg,
+            #624a97 34%,
+            rgba(113, 73, 151, 0.92) 39.5%,
+            rgba(126, 71, 152, 0.83) 45%,
+            rgba(139, 69, 152, 0.75) 50.5%,
+            rgba(152, 67, 152, 0.67) 56%,
+            rgba(164, 64, 151, 0.58) 61.5%,
+            rgba(176, 61, 149, 0.5) 67%,
+            rgba(189, 56, 146, 0.42) 72.5%,
+            rgba(202, 51, 140, 0.33) 78%,
+            rgba(215, 44, 130, 0.25) 83.5%,
+            rgba(228, 35, 115, 0.17) 89%,
+            rgba(255, 0, 0, 0) 100%
+          ),
+          linear-gradient(
+            208deg,
+            #f4e174 43%,
+            rgba(243, 214, 107, 0.92) 47.75%,
+            rgba(241, 203, 98, 0.83) 52.5%,
+            rgba(240, 192, 89, 0.75) 57.25%,
+            rgba(238, 181, 80, 0.67) 62%,
+            rgba(237, 169, 71, 0.58) 66.75%,
+            rgba(236, 158, 63, 0.5) 71.5%,
+            rgba(235, 145, 54, 0.42) 76.25%,
+            rgba(235, 132, 45, 0.33) 81%,
+            rgba(236, 117, 36, 0.25) 85.75%,
+            rgba(239, 99, 26, 0.17) 90.5%,
+            rgba(255, 0, 0, 0) 100%
+          );
+        min-height: 100vh;
+        width: auto;
+      }
+
+      .hero img {
+        /* Make the image take 750px of the width and aligjt it to the right */
+        width: 60vw;
+        position: absolute;
+        right: 0;
+        bottom: 2vh;
+        object-fit: cover;
+      }
+
+      #hero-img-small,
+      #small-action {
+        display: none;
+      }
+
+      @media screen and (max-width: 1700px) {
+        .hero img {
+          bottom: 15vh;
+        }
+      }
+
+      @media screen and (max-width: 1500px) {
+        .hero img {
+          bottom: 27vh;
+        }
+      }
+
+      @media screen and (max-width: 1200px) {
+        .hero img {
+          bottom: 40vh;
+          width: 55vw;
+        }
+      }
+
+      @media screen and (max-width: 1000px) {
+        .hero img {
+          display: none;
+        }
+      }
+
+      .title {
+        position: absolute;
+        top: 30vh;
+        left: 3vw;
+        max-width: 50vw;
+        color: white;
+      }
+
+      .title h1 {
+        font-family: "Inter", sans-serif;
+        font-size: 50px;
+        text-transform: capitalize;
+        font-weight: 600;
+      }
+
+      .title p {
+        font-family: "Inter", sans-serif;
+        font-size: 25px;
+        font-weight: 400;
+        margin-top: 2vh;
+        max-width: 40vw;
+      }
+
+      .title a {
+        font-family: "Inter", sans-serif;
+        display: inline-block;
+        background-color: #f4e174;
+        color: #624a97;
+        font-size: 25px;
+        padding: 15px 10px;
+        border-radius: 30px;
+        margin-top: 5vh;
+      }
+
+      .hero svg {
+        display: none;
+      }
+
+      @media screen and (max-width: 1700px) {
+        nav a {
+          font-size: 16px;
+        }
+
+        .title a {
+          font-size: 16px;
+        }
+
+        .title {
+          top: 20vh;
+        }
+
+        .title h1 {
+          font-size: 40px;
+        }
+
+        .title p {
+          font-size: 20px;
+        }
+      }
+
+      @media screen and (max-width: 1500px) {
+        .title h1 {
+          font-size: 35px;
+        }
+
+        .title p {
+          font-size: 18px;
+        }
+
+        .title a {
+          font-size: 20px;
+          padding: 10px 10px;
+        }
+
+        .hero svg {
+          display: block;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 20vh;
+        }
+      }
+
+      @media screen and (max-width: 1200px) {
+        .title h1 {
+          font-size: 30px;
+        }
+
+        .title p {
+          font-size: 16px;
+        }
+
+        .title a {
+          font-size: 16px;
+          padding: 8px 8px;
+        }
+
+        .hero svg {
+          height: 30vh;
+        }
+      }
+
+      @media screen and (max-width: 1000px) {
+        .title {
+          top: 15vh;
+          max-width: fit-content;
+          position: inherit;
+          max-width: inherit;
+          margin-top: 16vh;
+        }
+
+        .title h1 {
+          font-size: 30px;
+          display: block;
+          width: 60vw;
+          margin: auto;
+          text-align: center;
+        }
+
+        .title p {
+          font-size: 18px;
+          display: block;
+          width: 60vw;
+          margin: auto;
+          text-align: center;
+          max-width: 60vw;
+          position: relative;
+          padding-bottom: 2vh;
+        }
+
+        .title a {
+          display: none;
+        }
+
+        #small-action {
+          display: block;
+          margin: 5vh auto;
+          width: 80vw;
+          max-width: 250px;
+          text-align: center;
+          font-size: 16px;
+          padding: 10px 10px;
+          border-radius: 30px;
+        }
+
+        .hero svg {
+          display: none;
+        }
+
+        #hero-img-small {
+          position: inherit;
+          width: inherit;
+          height: 40vh;
+          object-fit: cover;
+          display: block;
+          margin: 4vh auto;
+        }
+      }
+
+      @media screen and (max-width: 500px) {
+        .title h1 {
+          width: 90vw;
+        }
+
+        .title p {
+          width: 90vw;
+          font-size: 16px;
+        }
+      }
+
+      .dataset {
+        background-color: #f4e174;
+        padding: 5vh 0;
+      }
+
+      .dataset-table {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .dataset h2 {
+        font-family: "Inter", sans-serif;
+        text-align: center;
+        font-size: 40px;
+        font-weight: 600;
+        color: #624a97;
+        text-transform: capitalize;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .dataset h2 {
+          font-size: 30px;
+        }
+      }
+
+      .dataset table {
+        margin-top: 3vh;
+        width: 500px;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .dataset table {
+          width: 90vw;
+        }
+      }
+
+      .dataset table thead {
+        background-color: #624a97;
+        color: white;
+        border: none;
+      }
+      .dataset table thead th {
+        border: none;
+      }
+
+      .dataset table tr td,
+      .dataset table tr th {
+        font-size: 20px;
+      }
+
+      .dataset table tr th {
+        font-size: 20px;
+        text-align: center;
+      }
+
+      .dataset table tr td:nth-child(2) {
+        text-align: right;
+      }
+
+      .tg {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+      .tg td {
+        border: none;
+        font-size: 14px;
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+        color: #624a97;
+      }
+      .tg th {
+        border: none;
+        border-style: solid;
+        border-width: 0.5px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+      }
+
+      .license {
+        margin-top: 5vh;
+      }
+
+      .license img {
+        display: block;
+        margin: auto;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="hero">
+        <nav>
+          <a href="https://github.com/ElGarash/bdd100k-trajectories"
+            >BDD-trajectories Repo</a
+          >
+          <a
+            href="https://github.com/ElGarash/Leveraging-Cross-View-Geo-Localization-With-Ensemble-Learning-And-Temporal-Awareness"
+            >The Paper Repo</a
+          >
+        </nav>
+        <div class="title">
+          <h1>
+            Leveraging cross-view geo-localization with ensemble learning and
+            temporal awareness
+          </h1>
+          <picture>
+            <source
+              srcset="
+                https://raw.githubusercontent.com/ghnem/ghnem.github.io/main/Leveraging-Cross-View-Geo-Localization-With-Ensemble-Learning-And-Temporal-Awareness/images/hero.webp
+              "
+              type="image/webp"
+            />
+            <source
+              srcset="
+                https://raw.githubusercontent.com/ghnem/ghnem.github.io/main/Leveraging-Cross-View-Geo-Localization-With-Ensemble-Learning-And-Temporal-Awareness/images/hero.png
+              "
+              type="image/png"
+            />
+            <img
+              id="hero-img-small"
+              src="https://raw.githubusercontent.com/ghnem/ghnem.github.io/main/Leveraging-Cross-View-Geo-Localization-With-Ensemble-Learning-And-Temporal-Awareness/images/hero.webp"
+              alt="A car with drone on top of it"
+            />
+          </picture>
+          <a
+            id="small-action"
+            href="https://journals.plos.org/plosone/"
+            rel="noopener"
+          >
+            Read the paper at PLOS ONE!</a
+          >
+          <p>
+            Our ensemble model achieves a recall accuracy R@1 of 97.74% on the
+            CVUSA dataset and 91.43% on the CVACT dataset (surpassing the
+            current state-of-the-art). Our temporal awareness mechanism
+            converges to R@1 of ~100% by looking at a few steps back in the trip
+            history.
+          </p>
+          <a href="https://journals.plos.org/plosone/" rel="noopener">
+            Read the paper at PLOS ONE!</a
+          >
+        </div>
+        <picture>
+          <source
+            srcset="
+              https://raw.githubusercontent.com/ghnem/ghnem.github.io/main/Leveraging-Cross-View-Geo-Localization-With-Ensemble-Learning-And-Temporal-Awareness/images/hero.webp
+            "
+            type="image/webp"
+          />
+          <source
+            srcset="
+              https://raw.githubusercontent.com/ghnem/ghnem.github.io/main/Leveraging-Cross-View-Geo-Localization-With-Ensemble-Learning-And-Temporal-Awareness/images/hero.png
+            "
+            type="image/png"
+          />
+          <img
+            src="https://raw.githubusercontent.com/ghnem/ghnem.github.io/main/Leveraging-Cross-View-Geo-Localization-With-Ensemble-Learning-And-Temporal-Awareness/images/hero.webp"
+            alt="A car with drone on top of it"
+          />
+        </picture>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svgjs="http://svgjs.com/svgjs"
+          width="1440"
+          height="560"
+          preserveAspectRatio="none"
+          viewBox="0 0 1440 560"
+        >
+          <g mask='url("#SvgjsMask1054")' fill="none">
+            <path
+              d="M 0,482 C 28.8,439.2 86.4,263 144,268 C 201.6,273 230.4,543.8 288,507 C 345.6,470.2 374.4,114.8 432,84 C 489.6,53.2 518.4,315.4 576,353 C 633.6,390.6 662.4,235.4 720,272 C 777.6,308.6 806.4,561.2 864,536 C 921.6,510.8 950.4,144.8 1008,146 C 1065.6,147.2 1094.4,532.2 1152,542 C 1209.6,551.8 1238.4,204.4 1296,195 C 1353.6,185.6 1411.2,435 1440,495L1440 560L0 560z"
+              fill="rgba(1, 199, 202, 1)"
+            ></path>
+          </g>
+          <defs>
+            <mask id="SvgjsMask1054">
+              <rect width="1440" height="560" fill="#ffffff"></rect>
+            </mask>
+          </defs>
+        </svg>
+      </div>
+      <div class="dataset">
+        <h2>The Dataset</h2>
+        <div class="dataset-table">
+          <table class="tg">
+            <thead>
+              <tr>
+                <th class="tg-0lax">Part</th>
+                <th class="tg-0lax">Size (bytes)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-0-1.tar.gz"
+                    >frames-0-1.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2990920667</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-2-3.tar.gz"
+                    >frames-2-3.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">3033283137</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-4-5.tar.gz"
+                    >frames-4-5.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2873286968</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-6-7.tar.gz"
+                    >frames-6-7.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">3008210357</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-8-9.tar.gz"
+                    >frames-8-9.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">3035643872</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-10-11.tar.gz"
+                    >frames-10-11.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2956509419</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-12-13.tar.gz"
+                    >frames-12-13.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2910116893</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-14-15.tar.gz"
+                    >frames-14-15.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">3071527083</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-16-17.tar.gz"
+                    >frames-16-17.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2721694666</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-18-19.tar.gz"
+                    >frames-18-19.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2823524487</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-20-21.tar.gz"
+                    >frames-20-21.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2863151433</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-22-23.tar.gz"
+                    >frames-22-23.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2751485801</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-24-25.tar.gz"
+                    >frames-24-25.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">3010295833</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-26-27.tar.gz"
+                    >frames-26-27.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2938125863</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-28-29.tar.gz"
+                    >frames-28-29.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">3050952509</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-30-31.tar.gz"
+                    >frames-30-31.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2840059334</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-32-33.tar.gz"
+                    >frames-32-33.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2850460900</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-34-35.tar.gz"
+                    >frames-34-35.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2852541912</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-36-37.tar.gz"
+                    >frames-36-37.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2978403276</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-38-39.tar.gz"
+                    >frames-38-39.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2844187097</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-40-41.tar.gz"
+                    >frames-40-41.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">3030386871</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-42-43.tar.gz"
+                    >frames-42-43.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2933383410</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-44-45.tar.gz"
+                    >frames-44-45.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2702492456</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-46-47.tar.gz"
+                    >frames-46-47.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">4466421490</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-48-49.tar.gz"
+                    >frames-48-49.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">3041822052</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-50-51.tar.gz"
+                    >frames-50-51.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">4753630197</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-52-53.tar.gz"
+                    >frames-52-53.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2828562784</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-54-55.tar.gz"
+                    >frames-54-55.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">4404205681</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-56-57.tar.gz"
+                    >frames-56-57.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2857631062</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-58-59.tar.gz"
+                    >frames-58-59.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">4786554303</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-60-61.tar.gz"
+                    >frames-60-61.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">4712586400</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-62-63.tar.gz"
+                    >frames-62-63.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2942886656</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-64-65.tar.gz"
+                    >frames-64-65.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2899517692</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-66-67.tar.gz"
+                    >frames-66-67.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">2866742107</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">
+                  <a
+                    href="https://cross-view.s3.amazonaws.com/frames-68-69.tar.gz"
+                    >frames-68-69.tar.gz
+                  </a>
+                </td>
+                <td class="tg-0lax">3133610864</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="license">
+            <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"
+              ><img
+                alt="Creative Commons License"
+                src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+            /></a>
+            <p>
+              This work is licensed under a <br />
+              <a
+                rel="license"
+                href="http://creativecommons.org/licenses/by/4.0/"
+                >Creative Commons Attribution 4.0 International License</a
+              >.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
