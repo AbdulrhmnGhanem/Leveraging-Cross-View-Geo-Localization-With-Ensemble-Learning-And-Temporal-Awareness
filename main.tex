@@ -327,7 +327,7 @@ So, in this research, we build an ensemble of independently trained models to so
 This research investigates two different aggregation methods: soft-voting, and hard-voting. As shown in Fig~\ref{fig1}, for both methods, we try all possible  combinations of the models (their power set).
 
 \begin{figure}[!ht]
-\caption{{\bf Different ensemble aggregation methods.}}
+\caption{{\bf Different ensemble aggregation methods.} We use 5 state-of-the-art models and combined their outputs using 32 different combinations for each strategy. }
 \includegraphics*[width=0.9\linewidth]{fig1.tiff.png}
 \label{fig1}
 \end{figure}
@@ -381,7 +381,7 @@ Extract the frames at the selected timestamps using FFmpeg~\cite{bib23};\
 \end{algorithm}
 
 \begin{figure}[!ht]
-  \caption{{\bf Three examples from our dataset. For ground images, the time progresses from left to right.}}
+  \caption{{\bf Three examples from our dataset. For ground images.} The time progresses from left to right and the distance between the consecutive frames is 10 m.}
   \includegraphics*[width=0.9\linewidth]{fig2.tiff.png}
   \label{fig2}
 \end{figure}
@@ -404,21 +404,21 @@ We capture the aerial tiles at the midpoint of the example using the great circl
 After extracting the frames, we remove trajectories where 30\% of the extracted ground frames are mildly lit ($44.5\%$of all trajectories). For example, we take the trajectory of the Bright frame in Fig~\ref{fig5} and drop the other two trajectories. Then we removed the trajectories that have blurry aerial tiles ($13.5\%$ of the bright trajectories) similar to the example shown in Fig~\ref{fig6}. We use a Laplacian filter~\cite{bib11} with a threshold of $200$ to detect blurry aerial tiles, and a grayscale mean filter with a threshold of $85$ to detect dark ground frames. We chose both thresholds empirically to drop all the true positive corrupt examples with some false positives. Fig~\ref{fig7} shows a simplified dataflow of our cleaning pipeline. We scaled the ground and aerial images’ width to $400$ while keeping the height in aspect ratio using the \emph{Lanczos algorithm}.
 
 \begin{figure}[!ht]
-  \caption{{\bf Examples of different lighting conditions in the BDD100K dataset.}}
+  \caption{{\bf Examples of different lighting conditions in the BDD100K dataset.} In the dark frames, we can't construct a meaningful correspondence between the ground and aerial images.}
   \includegraphics*[width=0.9\linewidth]{fig5.tiff.png}
 
   \label{fig5}
 \end{figure}
 
 \begin{figure}[!ht]
-  \caption{{\bf An example of a blurry aerial image.}}
+  \caption{{\bf An example of a blurry aerial image.} Sometimes this is deliberate by the satellite imagery provider for privacy reasons.}
   \includegraphics*[width=0.9\linewidth]{fig6.tiff.png}
 
   \label{fig6}
 \end{figure}
 
 \begin{figure}[!ht]
-  \caption{{\bf A simplified version of our data cleaning pipeline.}}
+  \caption{{\bf A simplified version of our data cleaning pipeline.} This dataflow pipeline is \emph{embarrassingly parallel}. We had it running across 6 machines cluster, 16 core each.}
   \includegraphics*[width=0.9\linewidth]{fig7.tiff.png}
   \label{fig7}
 \end{figure}
@@ -543,13 +543,13 @@ Fig~\ref{fig14} illustrates that soft voting performs the best. Although soft vo
 \end{figure}
 
 \begin{figure}[!ht]
-  \caption{{\bf An example that shows the Mixed Model architecture r@(1 - 5) compared to the individual models on the CVUSA dataset.} The true satellite has a red border.}
+  \caption{{\bf An example that shows the ensemble model r@(1 - 5) compared to the individual models on the CVUSA dataset.} The true satellite has a red border.}
   \includegraphics*[width=0.9\linewidth]{fig15.tiff.png}
   \label{fig15}
 \end{figure}
 
 \begin{figure}[!ht]
-  \caption{{\bf An example that shows the Mixed Model architecture r@(1 - 5) compared to the individual models on the CVACT dataset.}  The true satellite has a red border.}
+  \caption{{\bf An example that shows the ensemble model r@(1 - 5) compared to the individual models on the CVACT dataset.}  The true satellite has a red border.}
   \includegraphics*[width=0.9\linewidth]{fig16.tiff.png}
   \label{fig16}
 \end{figure}
@@ -577,7 +577,7 @@ The training process took $192$ hours for $228$ epochs. Table~\ref{table6} shows
 \end{table}
 
 \begin{figure}[!ht]
-  \caption{{\bf The effect of the size of the validation dataset on the r@k metric.}  Same model (EgoTR) with the same dataset (BDD-trajectories). The accuracy decreases as the size of the validation dataset increases.}
+  \caption{{\bf The effect of the size of the validation dataset on the r@k metric.}  Same model \emph{(EgoTR)} with the same dataset \emph{(BDD-trajectories)}. The accuracy decreases as the size of the validation dataset increases.}
   \includegraphics*[width=0.9\linewidth]{fig17.tiff.png}
   \label{fig17}
 \end{figure}
