@@ -164,12 +164,6 @@ Mahmoud Masoud\textsuperscript{2}
 \section*{Abstract}
 The Global Navigation Satellite System (GNSS) is unreliable in some situations. To mend the poor GNSS signal, an autonomous vehicle can self-localize by matching a ground image against a database of geotagged aerial images. However, this approach has challenges  because of the dramatic differences in viewpoint between aerial and ground views, harsh weather and lighting conditions, and a lack of orientation information in training and deployment environments. In this paper, we show that previous models in this area are complementary, not competitive, and that each model solves a different aspect of the problem. We propose an ensemble model to aggregate the predictions of multiple independently trained state-of-the-art models. Also, we show the effect of making the query process temporal-aware  But none of the existing benchmark datasets is suitable for extensive temporal awareness experiments, we generated a new derivative dataset based on the BDD100K dataset. This paper also proposes an efficient temporal awareness mechanism: naive history, to prove that fusing the temporal information of the trip with the model prediction significantly improves the accuracy. Our ensemble model achieves a recall accuracy R@1 of 97.74\% on the CVUSA dataset and 91.43\% on the CVACT dataset (surpassing the current state-of-the-art). Our temporal awareness mechanism converges to R@1 of ~100\% by looking at a few steps back in the trip history. We expect this study to initialize the building of deployable ensemble cross-view geo-localization models that take advantage of temporal proximity between ground images.
 
-% Please keep the Author Summary between 150 and 200 words
-% Use first person. PLOS ONE authors please skip this step. 
-% Author Summary not valid for PLOS ONE submissions.   
-% \section*{Author summary}
-% Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
-
 \linenumbers
 
 % Use "Eq" instead of "Equation" for equation citations.
@@ -332,7 +326,7 @@ So, in this research, we build an ensemble of independently trained models to so
 
 This research investigates two different aggregation methods: soft-voting, and hard-voting. As shown in Fig~\ref{fig1}, for both methods, we try all possible  combinations of the models (their power set).
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \caption{{\bf Different ensemble aggregation methods.}}
 \includegraphics*[width=0.9\linewidth]{fig1.tiff.png}
 \label{fig1}
@@ -386,7 +380,7 @@ $t \gets \frac{\text{d} \times  \text{n}}{v_{\text{n}} + v_{\text{n} + 1}} , n \
 Extract the frames at the selected timestamps using FFmpeg~\cite{bib23};\
 \end{algorithm}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
   \caption{{\bf Three examples from our dataset. For ground images, the time progresses from left to right.}}
   \includegraphics*[width=0.9\linewidth]{fig2.tiff.png}
   \label{fig2}
@@ -394,13 +388,13 @@ Extract the frames at the selected timestamps using FFmpeg~\cite{bib23};\
 
 We capture the aerial tiles at the midpoint of the example using the great circle algorithm~\cite{bib16} and then fetch them from Google Maps~\cite{bib15}. We experimented with different zoom levels, Fig~\ref{fig3}. Furthermore, we chose the 20th zoom level; it covers a wide area with great detail. We chose a tile size of  $800 \times 800$ as shown in Fig~\ref{fig4}.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
   \caption{{\bf Examples of three different zoom levels for aerial tile. Markers are 10 m apart on the trajectory.}}
   \includegraphics*[width=0.9\linewidth]{fig3.tiff.png}
   \label{fig3}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
   \caption{{\bf An example of different tile sizes for the same zoom level.}}
   \includegraphics*[width=0.9\linewidth]{fig4.tiff.png}
 
@@ -409,21 +403,21 @@ We capture the aerial tiles at the midpoint of the example using the great circl
 
 After extracting the frames, we remove trajectories where 30\% of the extracted ground frames are mildly lit ($44.5\%$of all trajectories). For example, we take the trajectory of the Bright frame in Fig~\ref{fig5} and drop the other two trajectories. Then we removed the trajectories that have blurry aerial tiles ($13.5\%$ of the bright trajectories) similar to the example shown in Fig~\ref{fig6}. We use a Laplacian filter~\cite{bib11} with a threshold of $200$ to detect blurry aerial tiles, and a grayscale mean filter with a threshold of $85$ to detect dark ground frames. We chose both thresholds empirically to drop all the true positive corrupt examples with some false positives. Fig~\ref{fig7} shows a simplified dataflow of our cleaning pipeline. We scaled the ground and aerial images’ width to $400$ while keeping the height in aspect ratio using the \emph{Lanczos algorithm}.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
   \caption{{\bf Examples of different lighting conditions in the BDD100K dataset.}}
   \includegraphics*[width=0.9\linewidth]{fig5.tiff.png}
 
   \label{fig5}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
   \caption{{\bf An example of a blurry aerial image.}}
   \includegraphics*[width=0.9\linewidth]{fig6.tiff.png}
 
   \label{fig6}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
   \caption{{\bf A simplified version of our data cleaning pipeline.}}
   \includegraphics*[width=0.9\linewidth]{fig7.tiff.png}
   \label{fig7}
@@ -432,7 +426,7 @@ After extracting the frames, we remove trajectories where 30\% of the extracted 
 \FloatBarrier
 
 \subsection*{C) Naive history}
-Inspired by our experiments on the joint probability as a soft-voting strategy for ensemble learning. In a journey setting where the history of the journey is available, we hypothesize that taking the previous predictions into account might cause the prediction to converge while progressing in the journey. This hypothesis relies on the fact that even if the model doesn't return the true location as its top-1 prediction, most of the time, it is still in the top-1\% predictions. Also, the probability that a model will predict N consecutive wrong predictions decreases as N increases. Based on this, we fine-tune the EgoTR model on the new deravative dataset (\emph{BDD-trajectories}). We use this dataset because it has trip trajectories.
+Inspired by our experiments on the joint probability as a soft-voting strategy for ensemble learning. In a journey setting where the history of the journey is available, we hypothesize that taking the previous predictions into account might cause the prediction to converge while progressing in the journey. This hypothesis relies on the fact that even if the model doesn't return the true location as its top-1 prediction, most of the time, it is still in the top-1\% predictions. Also, the probability that a model will predict N consecutive wrong predictions decreases as N increases. Based on this, we fine-tune the EgoTR model on the new derivative dataset (\emph{BDD-trajectories}). We use this dataset because it has trip trajectories.
 
 \subsubsection*{Fine-tuning EgoTR}
 The EgoTR model takes a pair of images as input: a ground image and a satellite image as its input. However, an example in our dataset consists of a hexad: five ground images and a satellite image. So we have to reshape our dataset to be suitable for the EgoTR input format. We choose the examples where there are at least two examples from the same journey, so we have 10 ground images from the same trajectory. We pair every ground image and the satellite image in the examples. This means that each example in \emph{BDD-trajectories} corresponds to five examples in the reshaped dataset. We use a subset of reshaped dataset $19015$ pairs for validation and $75985$ pairs for fine-tuning.
@@ -496,14 +490,14 @@ As mentioned before the cross-view models are complementary to existing GNSS, so
 \subsection*{A) The ensemble model}
 Fig~\ref{fig8} and Fig~\ref{fig9} show the results of the soft-voting strategies for CVUSA and CVACT, respectively. The DSM, EgoTR, and Toker combination outperforms other combinations. Increasing the number of the models doesn’t necessarily improve the accuracy; to improve the accuracy; individual models have to predict different examples correctly.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
   \caption{{\bf CVUSA combinations for the soft-voting strategies. The dark bar is the best performing combination.} The DSM, EgoTR, and Toker combination outperforms other combinations.}
   \includegraphics*[width=0.9\linewidth]{fig8.tiff.png}
   
   \label{fig8}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
   \caption{{\bf CVACT combinations for the soft-voting strategies. The dark bar is the best performing combination.} The DSM, EgoTR, and Toker combination outperforms other combinations. }
   \includegraphics*[width=0.9\linewidth]{fig9.tiff.png}
   
@@ -513,27 +507,27 @@ Fig~\ref{fig8} and Fig~\ref{fig9} show the results of the soft-voting strategies
 Fig\ref{fig10} and Fig~{fig11} show the results of hard-voting with the most accurate model prediction strategy for CVUSA and CVACT, respectively. The accuracy drops about 2\% for the r@1 and r@5 metrics. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations. Fig~\ref{fig12} and Fig~\ref{fig13} show the results of the hard-voting with the random selection strategy for CVUSA and CVACT, respectively. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations.
 
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
   \caption{{\bf CVUSA combinations for hard-voting with the most accurate model prediction strategy.} The dark bar is the best performing combination. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations.}
   \includegraphics*[width=0.9\linewidth]{fig10.tiff.png}
   \label{fig10}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
   \caption{{\bf CVACT combinations for hard-voting with the most accurate  model prediction strategy.} The dark bar is the best performing combination. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations.}
-  \includegraphics*[width=0.9\linewidth]{fig11.tiff.png}
+  \includegraphics*[width=\textwidth,height=0.8\textheight,keepaspectratio]{fig11.tiff.png}
   \label{fig11}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
   \caption{{\bf CVUSA combinations for hard-voting with the random selection strategy.} The dark bar is the best performing combination. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations. }
   \includegraphics*[width=0.9\linewidth]{fig12.tiff.png}
   \label{fig12}
 \end{figure}
 
-\begin{figure}[!h]
-  \caption{{\bf CVACT combinations for hard-voting with the random selection strategy.}   The dark bar is the best performing combination. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations.}
-  \includegraphics*[width=0.9\linewidth]{fig13.tiff.png}
+\begin{figure}[!ht]
+  \caption{{\bf CVACT combinations for hard-voting with the random selection strategy.} The dark bar is the best performing combination. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations.}
+  \includegraphics*[width=\textwidth,height=0.8\textheight,keepaspectratio]{fig13.tiff.png}
   \label{fig13}
 \end{figure}
 
@@ -541,20 +535,20 @@ Fig\ref{fig10} and Fig~{fig11} show the results of hard-voting with the most acc
 
 Fig~\ref{fig14} illustrates that soft voting performs the best. Although soft voting results with joint probability and averaging are identical, the computational cost of averaging strategy is cheaper. Hard-voting strategies have constant computational complexity. Soft-voting improves accuracy by looking at the {\bf top-k predictions} across different models. For the sake of illustration,  Fig~\ref{fig15} and Fig~\ref{fig16} show an example of the predictions of the individual models. None of the models returned the right prediction as the first prediction, but it was in the top-5 predictions for most models. Their collective prediction (the model ensemble) could return it as the first prediction.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
   \caption{{\bf Comparison between aggregation method for the best performing combinations. } {\bf A}: CVUSA and {\bf B}: CVACT.  The dark bar is the best performing aggregation method. Soft voting outperforms other methods across all r@k metrics for both datasets.}
   \includegraphics*[width=0.9\linewidth]{fig14.tiff.png}
   
   \label{fig14}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
   \caption{{\bf An example that shows the Mixed Model architecture r@(1 - 5) compared to the individual models on the CVUSA dataset.} The true satellite has a red border.}
   \includegraphics*[width=0.9\linewidth]{fig15.tiff.png}
   \label{fig15}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
   \caption{{\bf An example that shows the Mixed Model architecture r@(1 - 5) compared to the individual models on the CVACT dataset.}  The true satellite has a red border.}
   \includegraphics*[width=0.9\linewidth]{fig16.tiff.png}
   \label{fig16}
@@ -582,7 +576,7 @@ The training process took $192$ hours for $228$ epochs. Table~\ref{table6} shows
   \label{table6}
 \end{table}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
   \caption{{\bf The effect of the size of the validation dataset on the r@k metric.}  Same model (EgoTR) with the same dataset (BDD-trajectories). The accuracy decreases as the size of the validation dataset increases.}
   \includegraphics*[width=0.9\linewidth]{fig17.tiff.png}
   \label{fig17}
@@ -593,7 +587,7 @@ The training process took $192$ hours for $228$ epochs. Table~\ref{table6} shows
 \subsection*{C) Plain naive history}
 Our experiments, Fig~\ref{fig18}, show that the more we look back on the history of the journey. And the more accuracy improves. The algorithm has no assumptions about the current state, and its computational cost is negligible compared to generating the distance array.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
   \caption{{\bf The effect of the number of steps we look back on the accuracy.} The accuracy converges to ~100\% after seven steps on our dataset.}
   \includegraphics*[width=0.9\linewidth]{fig18.tiff.png}
   \label{fig18}
@@ -604,7 +598,7 @@ Our experiments, Fig~\ref{fig18}, show that the more we look back on the history
 Fig~\ref{fig19} shows that naive history with weak prior with 2 steps lookback outperforms plain naive history with 5 steps lookback. And it only takes 3 steps for naive history with a prior to converge to 100\%, compared to 7 steps (Fig~\ref{fig18}) for the plain version. 
 However promising this is, if the prior is wrong it can result in “trapping” the algorithm in the wrong state which will degrade the accuracy significantly, and this is the “naive” part of the naive history algorithm.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
   \caption{{\bf The effect of weak prior on naive history.}  The accuracy of naive history improves significantly when starting with some prior knowledge about the trip starting point. The brown line(naive history with prior) and the green line (plain naive history) represent the same number of steps into the trip though the brown line shows more accurate predictions due to factoring in the weak prior.}
   \includegraphics*[width=0.9\linewidth]{fig19.tiff.png}
   \label{fig19}
