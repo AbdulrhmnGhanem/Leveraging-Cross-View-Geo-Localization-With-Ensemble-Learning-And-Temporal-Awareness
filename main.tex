@@ -36,6 +36,8 @@
 % color can be used to apply background shading to table cells only
 \usepackage[table]{xcolor}
 
+\usepackage{color,soul}
+
 % array package and thick rules for tables
 \usepackage{array}
 
@@ -101,6 +103,9 @@
 
 \newcommand{\lorem}{{\bf LOREM}}
 \newcommand{\ipsum}{{\bf IPSUM}}
+\newif\ifhighlight
+\highlighttrue
+\newcommand{\hlb}[1]{\ifhighlight{\hl{#1}}\else{#1}\fi}
 
 %% END MACROS SECTION
 
