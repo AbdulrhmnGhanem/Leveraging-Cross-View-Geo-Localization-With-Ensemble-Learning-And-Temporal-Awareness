@@ -491,8 +491,15 @@ As mentioned before the cross-view models are complementary to existing GNSS, so
 \end{algorithm}
 \FloatBarrier
 
-\section*{Results}
+\section*{Results \hlb{and discussion}}
 \subsection*{A) The ensemble model}
+\hlb{Altough there are multiple options for bulding the ensemble model (e.g., stacking, boosting, and mixing models). We only choose mixing models (i.e., voting) for the following reasons:}
+\begin{itemize}
+  \item \hlb{If we tried stacking models, we would have to train the base models along side the meta model, otherwise, the meta model would overfit to the base models. Base models retraining would require a lot of computational resources.}
+  \item \hlb{All member models in the ensemble are trained on the entire dataset which means the meta leaner would also train on the same data as the base model. The other option is to train all the models from scratch, but this would require a lot of training resources.}
+  \item \hlb{Boosting models is not a good option because the base models are independent: the models have different weaknesses and strengths.}
+  \item \hlb{More importantly, the main goal is to show the need for wholistic solution for the problem, rather than showing the effectiveness of the ensemble model: in real time scenarios, a single model with something like the naive history algorithm would be much more efficient than an ensemble model.}
+\end{itemize}
 Fig~\ref{fig8} and Fig~\ref{fig9} show the results of the soft-voting strategies for CVUSA and CVACT, respectively. The DSM, EgoTR, and Toker combination outperforms other combinations. Increasing the number of the models doesn’t necessarily improve the accuracy; to improve the accuracy; individual models have to predict different examples correctly.
 
 \begin{figure}[!ht]
