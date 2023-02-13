@@ -423,7 +423,7 @@ After extracting the frames, we remove trajectories where 30\% of the extracted 
   \label{fig6}
 \end{figure}
 
-\hlb{In contraray to the GAMa dataset} \cite{bib55}, \hlb{the examples in the BDD-trajectories examples are evenly-spaced and the examples where the crosspondence between the ground and aerial images is not imperceptible (due to lighting conditions or satellite capture policies) are removed.}
+\hlb{In contraray to the GAMa dataset} \cite{bib60}, \hlb{the examples in the BDD-trajectories examples are evenly-spaced and the examples where the crosspondence between the ground and aerial images is not imperceptible (due to lighting conditions or satellite capture policies) are removed.}
 
 \begin{figure}[!ht]
   \caption{{\bf A simplified version of our data cleaning pipeline.} This dataflow pipeline is \emph{embarrassingly parallel}. We had it running across 6 machines cluster, 16 core each.}
@@ -619,7 +619,7 @@ However promising this is, if the prior is wrong it can result in “trapping”
 
 \hlb{The trapping can be avoided by running the algorithm for a few steps and then run a new instance of the alogrithm with a new prior and comparing their predcitions if they diverge this means one of the instance is trapped and the one more faithful to the GPS system should be picked and the other gets discarded. This can be scaled to a large number of instances by running them in parallel and then comparing their predictions. And compared to the ensemble model, this approach is more practical becuase is doesn't require running multiple models in parallel only the naive history algorithm which is cosnsits exelusively of shifting and multiplication.}
 
-\hlb{The most promising thing about this algorithm is that it can be used in real-time applications and get attached to any cross-view models. For example, it outperforms the GAMa 2D-CNN network} \cite{bib55} \hlb{which takes 8 steps to get an accuracy of 83\% for the r@1\% on their proposed dataset which is based on BDD100K too. And requires minimal resources compared to it during deployment and no training at all.}
+\hlb{The most promising thing about this algorithm is that it can be used in real-time applications and get attached to any cross-view models. For example, it outperforms the GAMa 2D-CNN network} \cite{bib60} \hlb{which takes 8 steps to get an accuracy of 83\% for the r@1\% on their proposed dataset which is based on BDD100K too. And requires minimal resources compared to it during deployment and no training at all.}
 
 \begin{figure}[!ht]
   \caption{{\bf The effect of weak prior on naive history.}  The accuracy of naive history improves significantly when starting with some prior knowledge about the trip starting point. The brown line(naive history with prior) and the green line (plain naive history) represent the same number of steps into the trip though the brown line shows more accurate predictions due to factoring in the weak prior.}
@@ -963,7 +963,7 @@ In this work, we streamlined using BDD100K so that we can build an end-to-end mo
     IMAGE PROCESSING: Communication.
   \newblock Diyala Journal of Engineering Sciences. 2015;8(4):430--440.
 
-  \bibitem{bib55}
+  \bibitem{bib60}
   Vyas S, Chen C, Shah M.
   \newblock GAMa: Cross-view Video Geo-localization.
   \newblock In: European Conference on Computer Vision.   Springer; 2022. p.
