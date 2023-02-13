@@ -299,18 +299,18 @@ We give an overview of the temporal awareness approaches used in cross-view geo-
 
 \section*{Methodology}
 \subsection*{A) Evaluation metric}
-In this research, we use the same evaluation metric used in~\cite{bib3,bib4,bib5,bib8,bib13,bib14,bib17,bib18,bib19,bib20,bib21,bib22,bib24,bib36,bib43,bib44,bib45,bib46,bib47,bib49,bib50}: the {\bf Recall@k (r@k)}. In r@k, we consider it a match if the corresponding aerial image is in the top k predictions. We use r@1, r@5, r@10, and r@1\%. r@1 means the true image is the first prediction of the model, r@5 means the true image is in the first five predictions of the model, and so on.
+In this research, we use the same evaluation metric used in~\cite{bib3,bib4,bib5,bib8,bib13,bib14,bib17,bib18,bib19,bib20,bib21,bib22,bib24,bib36,bib43,bib44,bib45,bib46,bib47,bib49,bib50}: the {\bf Recall@$k$ (r@$k$)}. In r@hlb{$k$}, we consider it a match if the corresponding aerial image is in the top k predictions. We use r@1, r@5, r@10, and r@1\%. r@1 means the true image is the first prediction of the model, r@5 means the true image is in the first five predictions of the model, and so on.
 
 \subsection*{B) The ensemble model}
 
 There are many challenges in cross-view matching. To name a few:  missing correspondence and orientation information, scene changes over time, and the high similarity among geographically close points. Recently, several models were developed to solve the cross-view (CV) matching problem, and different models approached the CV matching problem from different angles. Thus, each model has its advantages and disadvantages. We hypothesize that aggregating the outputs of these uncorrelated models might improve the accuracy.
-So, in this research, we build an ensemble of independently trained models to solve the CV matching problem. The proposed ensemble used the same datasets to train different neural network architectures. We use the CVUSA~\cite{bib55} and CVACT~\cite{bib4} benchmark datasets, to train five models Each model addresses a  different aspect of the problem: DSM~\cite{bib13} estimates the cross-view orientation alignment.  EgoTR~\cite{bib19} models global dependencies to decrease visual ambiguities and matches geometric configuration between ground and aerial images. SAFA~\cite{bib46} exploits geometric correspondence between aerial and panoramic ground images. Toker~\cite{bib18} biases the localization network via a Generative Adversarial Network (GAN) to learn salient features. SFCANet~\cite{bib45} uses Hard Exemplar Reweighting to assign a greater weight to hard examples. Table~\ref{table4} shows their r@k metrics.
+So, in this research, we build an ensemble of independently trained models to solve the CV matching problem. The proposed ensemble used the same datasets to train different neural network architectures. We use the CVUSA~\cite{bib55} and CVACT~\cite{bib4} benchmark datasets, to train five models Each model addresses a  different aspect of the problem: DSM~\cite{bib13} estimates the cross-view orientation alignment.  EgoTR~\cite{bib19} models global dependencies to decrease visual ambiguities and matches geometric configuration between ground and aerial images. SAFA~\cite{bib46} exploits geometric correspondence between aerial and panoramic ground images. Toker~\cite{bib18} biases the localization network via a Generative Adversarial Network (GAN) to learn salient features. SFCANet~\cite{bib45} uses Hard Exemplar Reweighting to assign a greater weight to hard examples. Table~\ref{table4} shows their r@\hlb{$k$} metrics.
 
 \begin{table}[!ht]
 \begin{adjustwidth}{-1.0in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
   \centering
   \caption{
-    {\bf The r@k metrics for the networks used to construct the  ensemble model.}}
+    {\bf The r@\hlb{$k$} metrics for the networks used to construct the  ensemble model.}}
   \scalebox{0.96}{
     \begin{tabular}{@{}lllllcrrrrrrr@{}}
       \toprule
@@ -564,7 +564,7 @@ As mentioned before the cross-view models are complementary to existing GNSS, so
 Fig~\ref{fig14} illustrates that soft voting performs the best. Although soft voting results with joint probability and averaging are identical, the computational cost of averaging strategy is cheaper. Hard-voting strategies have constant computational complexity. 
 
 \begin{figure}[!ht]
-  \caption{{\bf Comparison between aggregation method for the best performing combinations. } {\bf A}: CVUSA and {\bf B}: CVACT.  The dark bar is the best performing aggregation method. Soft voting outperforms other methods across all r@k metrics for both datasets.}
+  \caption{{\bf Comparison between aggregation method for the best performing combinations. } {\bf A}: CVUSA and {\bf B}: CVACT.  The dark bar is the best performing aggregation method. Soft voting outperforms other methods across all r@\hlb{$k$} metrics for both datasets.}
   \includegraphics*[width=0.9\linewidth]{fig14.tiff.png}
   \label{fig14}
 \end{figure}
@@ -574,12 +574,12 @@ Fig~\ref{fig14} illustrates that soft voting performs the best. Although soft vo
 
 \subsection*{B) EgoTR fine-tuning}
 
-The training process took $192$ hours for $228$ epochs. Table~\ref{table6} shows the r@k metrics for the model. This drop in accuracy can be attributed to: {\bf A)} the ground images in our dataset aren't panoramic, in contrast to CVUSA and CVACT. {\bf B)} high similarity between the consecutive pairs. {\bf C)} one of the shortcomings of the r@k metric is that it depends on the size of the validation dataset as shown in  Figure~\ref{fig17}, our validation dataset size is more than double the size of CVUSA or the size of CVACT.
+The training process took $192$ hours for $228$ epochs. Table~\ref{table6} shows the r@\hlb{$k$} metrics for the model. This drop in accuracy can be attributed to: {\bf A)} the ground images in our dataset aren't panoramic, in contrast to CVUSA and CVACT. {\bf B)} high similarity between the consecutive pairs. {\bf C)} one of the shortcomings of the r@\hlb{$k$} metric is that it depends on the size of the validation dataset as shown in  Figure~\ref{fig17}, our validation dataset size is more than double the size of CVUSA or the size of CVACT.
 
 \begin{table}[!ht]
   \centering
   \caption{
-  {\bf r@k metrics of EgoTR fine-tuned over the reshaped BDD-trajectories dataset.}}
+  {\bf r@\hlb{$k$} metrics of EgoTR fine-tuned over the reshaped BDD-trajectories dataset.}}
   \scalebox{0.96}{
     \begin{tabular}{@{}ccccccc@{}}
     \toprule
@@ -593,7 +593,7 @@ The training process took $192$ hours for $228$ epochs. Table~\ref{table6} shows
 \end{table}
 
 \begin{figure}[!ht]
-  \caption{{\bf The effect of the size of the validation dataset on the r@k metric.}  Same model \emph{(EgoTR)} with the same dataset \emph{(BDD-trajectories)}. The accuracy decreases as the size of the validation dataset increases.}
+  \caption{{\bf The effect of the size of the validation dataset on the r@\hlb{$k$} metric.}  Same model \emph{(EgoTR)} with the same dataset \emph{(BDD-trajectories)}. The accuracy decreases as the size of the validation dataset increases.}
   \includegraphics*[width=0.9\linewidth]{fig17.tiff.png}
   \label{fig17}
 \end{figure}
