@@ -500,7 +500,7 @@ As mentioned before the cross-view models are complementary to existing GNSS, so
   \item \hlb{Boosting models is not a good option because the base models are independent: the models have different weaknesses and strengths.}
   \item \hlb{More importantly, the main goal is to show the need for wholistic solution for the problem, rather than showing the effectiveness of the ensemble model: in real time scenarios, a single model with something like the naive history algorithm would be much more efficient than an ensemble model.}
 \end{itemize}
-Fig~\ref{fig8} and Fig~\ref{fig9} show the results of the soft-voting strategies for CVUSA and CVACT, respectively. The DSM, EgoTR, and Toker combination outperforms other combinations. Increasing the number of the models doesn’t necessarily improve the accuracy; to improve the accuracy; individual models have to predict different examples correctly.
+\hlb{Now focusing on the voting ensemble model: } Fig~\ref{fig8} and Fig~\ref{fig9} show the results of the soft-voting strategies for CVUSA and CVACT, respectively. The DSM, EgoTR, and Toker combination outperforms other combinations. \hlb{That is because these three models solve three orthognal parts of the problem: orientation, geometric correspondence, and cooching the right features.}  Increasing the number of the models doesn’t necessarily improve the accuracy; to improve the accuracy; individual models have to predict different examples correctly. \hlb{Although this is mitiageatable by by using a weighted voting strategy.}
 
 \begin{figure}[!ht]
   \caption{{\bf CVUSA combinations for the soft-voting strategies. The dark bar is the best performing combination.} The DSM, EgoTR, and Toker combination outperforms other combinations.}
@@ -516,8 +516,10 @@ Fig~\ref{fig8} and Fig~\ref{fig9} show the results of the soft-voting strategies
   \label{fig9}
 \end{figure}
 
-Fig\ref{fig10} and Fig~{fig11} show the results of hard-voting with the most accurate model prediction strategy for CVUSA and CVACT, respectively. The accuracy drops about 2\% for the r@1 and r@5 metrics. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations. Fig~\ref{fig12} and Fig~\ref{fig13} show the results of the hard-voting with the random selection strategy for CVUSA and CVACT, respectively. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations.
+\hlb{Fig.} \ref{fig10} and \hlb{Fig.} \ref{fig11} show the results of hard-voting with the most accurate model prediction strategy for CVUSA and CVACT, respectively. \hlb{The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations.}
+\hlb{The accuracy drops about 2\% for the r@1 and r@5 metrics for CVACT. Rarely all models return the gorund truth in the top-5 predictions for CVACT. In some situations the ensemble only have wrong choices to choose from. This was well-compensated by soft voting: the distances calculated by the joint probability can leverage the ground truth predciton even if it isn't in the top-5. The ensemble didn't have the same issue with CVUSA because the majority of models retrun the ground truth in the top-5 prediction.}
 
+\hlb{Soft-voting improves accuracy by looking at the }{\bf \hlb{top-k predictions}} \hlb{across different models. For the sake of illustration, Fig. }\ref{fig15} \hlb{and Fig. } \ref{fig16} \hlb{show an example of the predictions of the individual models. None of the models returned the right prediction as the first prediction, but it was in the top-5 predictions for most models. Their collective prediction (the model ensemble) could return it as the first prediction.}
 
 \begin{figure}[!ht]
   \caption{{\bf CVUSA combinations for hard-voting with the most accurate model prediction strategy.} The dark bar is the best performing combination. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations.}
@@ -530,6 +532,20 @@ Fig\ref{fig10} and Fig~{fig11} show the results of hard-voting with the most acc
   \includegraphics*[width=\textwidth,height=0.8\textheight,keepaspectratio]{fig11.tiff.png}
   \label{fig11}
 \end{figure}
+
+\begin{figure}[!ht]
+  \caption{{\bf An example that shows the ensemble model r@(1 - 5) compared to the individual models on the CVUSA dataset.} The true satellite has a red border.}
+  \includegraphics*[width=0.9\linewidth]{fig15.tiff.png}
+  \label{fig15}
+\end{figure}
+
+\begin{figure}[!ht]
+  \caption{{\bf An example that shows the ensemble model r@(1 - 5) compared to the individual models on the CVACT dataset.}  The true satellite has a red border.}
+  \includegraphics*[width=0.9\linewidth]{fig16.tiff.png}
+  \label{fig16}
+\end{figure}
+
+\hlb{Fig.} \ref{fig12} and \hlb{Fig.} \ref{fig13} show the results of the hard-voting with the random selection strategy for CVUSA and CVACT, respectively. \hlb{Here after removing the bias for the most accurate model increasing the number of voting nodels improvs the result; there's a higher prebability of having the right ground truth in the votes pool.} The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations.
 
 \begin{figure}[!ht]
   \caption{{\bf CVUSA combinations for hard-voting with the random selection strategy.} The dark bar is the best performing combination. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations. }
@@ -545,25 +561,12 @@ Fig\ref{fig10} and Fig~{fig11} show the results of hard-voting with the most acc
 
 \FloatBarrier
 
-Fig~\ref{fig14} illustrates that soft voting performs the best. Although soft voting results with joint probability and averaging are identical, the computational cost of averaging strategy is cheaper. Hard-voting strategies have constant computational complexity. Soft-voting improves accuracy by looking at the {\bf top-k predictions} across different models. For the sake of illustration,  Fig~\ref{fig15} and Fig~\ref{fig16} show an example of the predictions of the individual models. None of the models returned the right prediction as the first prediction, but it was in the top-5 predictions for most models. Their collective prediction (the model ensemble) could return it as the first prediction.
+Fig~\ref{fig14} illustrates that soft voting performs the best. Although soft voting results with joint probability and averaging are identical, the computational cost of averaging strategy is cheaper. Hard-voting strategies have constant computational complexity. 
 
 \begin{figure}[!ht]
   \caption{{\bf Comparison between aggregation method for the best performing combinations. } {\bf A}: CVUSA and {\bf B}: CVACT.  The dark bar is the best performing aggregation method. Soft voting outperforms other methods across all r@k metrics for both datasets.}
   \includegraphics*[width=0.9\linewidth]{fig14.tiff.png}
-  
   \label{fig14}
-\end{figure}
-
-\begin{figure}[!ht]
-  \caption{{\bf An example that shows the ensemble model r@(1 - 5) compared to the individual models on the CVUSA dataset.} The true satellite has a red border.}
-  \includegraphics*[width=0.9\linewidth]{fig15.tiff.png}
-  \label{fig15}
-\end{figure}
-
-\begin{figure}[!ht]
-  \caption{{\bf An example that shows the ensemble model r@(1 - 5) compared to the individual models on the CVACT dataset.}  The true satellite has a red border.}
-  \includegraphics*[width=0.9\linewidth]{fig16.tiff.png}
-  \label{fig16}
 \end{figure}
 
 \FloatBarrier
