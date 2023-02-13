@@ -1,4 +1,7 @@
 # Leveraging Cross-View Geo-Localization With Ensemble Learning And Temporal Awareness
+
+[![DOI](https://zenodo.org/badge/571379036.svg)](https://zenodo.org/badge/latestdoi/571379036)
+
 The code for the Leveraging Cross-View Geo-Localization With Ensemble Learning And Temporal Awareness paper.
 
 The `bdd100k-trajectories` repo contains the code for our deravative dataset pipeline. And the `cross-view-geo-localiztion-bag` cotains the
