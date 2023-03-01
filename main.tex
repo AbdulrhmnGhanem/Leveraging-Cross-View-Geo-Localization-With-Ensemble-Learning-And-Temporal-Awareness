@@ -103,10 +103,6 @@
 \highlighttrue
 \newcommand{\hlb}[1]{\ifhighlight{\hl{#1}}\else{#1}\fi}
 
-\newif\ifmaps
-\mapsfalse
-\mapstrue
-\newcommand{\maps}[1]{\ifmaps{#1}\fi}
 
 % Use \showblockfalse to turn remove google maps related content globally.
 % Use \highlightfalse to turn off highlighting globally.
@@ -395,22 +391,7 @@ Extract the frames at the selected timestamps using FFmpeg~\cite{bib23};\
   \label{fig2}
 \end{figure}
 
-We capture the aerial tiles at the midpoint of the example using the great circle algorithm~\cite{bib16} and then fetch them from Google Maps~\cite{bib15}. We experimented with different zoom levels\maps{, \hlb{Fig.} \ref{fig3}}. We chose the 20th zoom level; it covers a wide area with great detail. We chose a tile size of  $800 \times 800$\maps{ as shown in \hlb{Fig.} \ref{fig4}}.
-
-\maps{
-\begin{figure}[!ht]
-  \caption{{\bf Examples of three different zoom levels for aerial tile. Markers are 10 m apart on the trajectory.} Maps Data: Google, \copyright \ 2022 / Maxar Technologies.}
-  \includegraphics*[width=0.9\linewidth]{fig3.tiff.png}
-  \label{fig3}
-\end{figure}
-
-\begin{figure}[!ht]
-  \caption{{\bf An example of different tile sizes for the same zoom level.} Maps Data: Google, \copyright \ 2022 / Maxar Technologies.}
-  \includegraphics*[width=0.9\linewidth]{fig4.tiff.png}
-
-  \label{fig4}
-\end{figure}
-}
+We capture the aerial tiles at the midpoint of the example using the great circle algorithm~\cite{bib16} and then fetch them from Google Maps~\cite{bib15}. We experimented with different zoom levels. We chose the 20th zoom level; it covers a wide area with great detail. We chose a tile size of  $800 \times 800$.
 
 After extracting the frames, we remove trajectories where 30\% of the extracted ground frames are mildly lit ($44.5\%$of all trajectories). For example, we take the trajectory of the Bright frame in \hlb{Fig.} \ref{fig5} and drop the other two trajectories. Then we removed the trajectories that have blurry aerial tiles ($13.5\%$ of the bright trajectories) similar to the example shown in \hlb{Fig.} \ref{fig6}. We use a Laplacian filter~\cite{bib11} with a threshold of $200$ to detect blurry aerial tiles, and a grayscale mean filter with a threshold of $85$ to detect dark ground frames. We chose both thresholds empirically to drop all the true positive corrupt examples with some false positives. \hlb{Fig.} \ref{fig7} shows a simplified dataflow of our cleaning pipeline. We scaled the ground and aerial images’ width to $400$ while keeping the height in aspect ratio using the \emph{Lanczos algorithm}.
 
