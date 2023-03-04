@@ -334,8 +334,8 @@ So, in this research, we build an ensemble of independently trained models to so
 This research investigates two different aggregation methods: soft-voting, and hard-voting. As shown in \hlb{Fig.} \ref{fig1}, for both methods, we try all possible  combinations of the models (their power set).
 
 \begin{figure}[!ht]
-\caption{{\bf Different ensemble aggregation methods.} We use 5 state-of-the-art models and combined their outputs using 32 different combinations for each strategy. }
 \includegraphics*[width=0.9\linewidth]{fig1.tiff.png}
+\caption{{\bf Different ensemble aggregation methods.} We use 5 state-of-the-art models and combined their outputs using 32 different combinations for each strategy.}
 \label{fig1}
 \end{figure}
 
@@ -388,8 +388,8 @@ Extract the frames at the selected timestamps using FFmpeg~\cite{bib23};\
 \end{algorithm}
 
 \begin{figure}[!ht]
-  \caption{{\bf Three examples from our dataset. For ground images.} The time progresses from left to right and the distance between the consecutive frames is 10 m.}
   \includegraphics*[width=0.9\linewidth]{fig2.tiff.png}
+  \caption{{\bf Three examples from our dataset. For ground images.} The time progresses from left to right and the distance between the consecutive frames is 10 m.}
   \label{fig2}
 \end{figure}
 
@@ -398,25 +398,23 @@ We capture the aerial tiles at the midpoint of the example using the great circl
 After extracting the frames, we remove trajectories where 30\% of the extracted ground frames are mildly lit ($44.5\%$of all trajectories). For example, we take the trajectory of the Bright frame in \hlb{Fig.} \ref{fig5} and drop the other two trajectories. Then we removed the trajectories that have blurry aerial tiles ($13.5\%$ of the bright trajectories) similar to the example shown in \hlb{Fig.} \ref{fig6}. We use a Laplacian filter~\cite{bib11} with a threshold of $200$ to detect blurry aerial tiles, and a grayscale mean filter with a threshold of $85$ to detect dark ground frames. We chose both thresholds empirically to drop all the true positive corrupt examples with some false positives. \hlb{Fig.} \ref{fig7} shows a simplified dataflow of our cleaning pipeline. We scaled the ground and aerial images’ width to $400$ while keeping the height in aspect ratio using the \emph{Lanczos algorithm}.
 
 \begin{figure}[!ht]
-  \caption{{\bf Examples of different lighting conditions in the BDD100K dataset.} In the dark frames, we can't construct a meaningful correspondence between the ground and aerial images.}
   \includegraphics*[width=0.9\linewidth]{fig5.tiff.png}
-
+  \caption{{\bf Examples of different lighting conditions in the BDD100K dataset.} In the dark frames, we can't construct a meaningful correspondence between the ground and aerial images.}
   \label{fig5}
 \end{figure}
 
 \begin{figure}[!ht]
   \centering
-  \caption{{\bf An example of a blurry aerial image.} Sometimes this is deliberate by the satellite imagery provider for privacy reasons.}
   \includegraphics*[width=0.3\linewidth]{fig6.tiff.png}
-
+  \caption{{\bf An example of a blurry aerial image.} Sometimes this is deliberate by the satellite imagery provider for privacy reasons.}
   \label{fig6}
 \end{figure}
 
 \hlb{In contraray to the GAMa dataset} \cite{bib60}, \hlb{the examples in the BDD-trajectories examples are evenly-spaced and the examples where the crosspondence between the ground and aerial images is not imperceptible (due to lighting conditions or satellite capture policies) are removed.}
 
 \begin{figure}[!ht]
-  \caption{{\bf A simplified version of our data cleaning pipeline.} This dataflow pipeline is \emph{embarrassingly parallel}. We had it running across 6 machines cluster, 16 core each.}
   \includegraphics*[width=0.9\linewidth]{fig7.tiff.png}
+  \caption{{\bf A simplified version of our data cleaning pipeline.} This dataflow pipeline is \emph{embarrassingly parallel}. We had it running across 6 machines cluster, 16 core each.}
   \label{fig7}
 \end{figure}
 
@@ -495,16 +493,15 @@ As mentioned before the cross-view models are complementary to existing GNSS, so
 \hlb{Now focusing on the voting ensemble model: } \hlb{Fig.} \ref{fig8} and \hlb{Fig.} \ref{fig9} show the results of the soft-voting strategies for CVUSA and CVACT, respectively. The DSM, EgoTR, and Toker combination outperforms other combinations. \hlb{That is because these three models solve three orthognal parts of the problem: orientation, geometric correspondence, and cooching the right features.}  Increasing the number of the models doesn’t necessarily improve the accuracy; to improve the accuracy; individual models have to predict different examples correctly. \hlb{Although this is mitiageatable by by using a weighted voting strategy.}
 
 \begin{figure}[!ht]
-  \caption{{\bf CVUSA combinations for the soft-voting strategies. The dark bar is the best performing combination.} The DSM, EgoTR, and Toker combination outperforms other combinations.}
   \includegraphics*[width=0.9\linewidth]{fig8.tiff.png}
   
+  \caption{{\bf CVUSA combinations for the soft-voting strategies. The dark bar is the best performing combination.} The DSM, EgoTR, and Toker combination outperforms other combinations.}
   \label{fig8}
 \end{figure}
 
 \begin{figure}[!ht]
-  \caption{{\bf CVACT combinations for the soft-voting strategies. The dark bar is the best performing combination.} The DSM, EgoTR, and Toker combination outperforms other combinations. }
   \includegraphics*[width=0.9\linewidth]{fig9.tiff.png}
-  
+  \caption{{\bf CVACT combinations for the soft-voting strategies. The dark bar is the best performing combination.} The DSM, EgoTR, and Toker combination outperforms other combinations. }
   \label{fig9}
 \end{figure}
 
@@ -514,40 +511,39 @@ As mentioned before the cross-view models are complementary to existing GNSS, so
 \hlb{Soft-voting improves accuracy by looking at the }{\bf \hlb{top-k predictions}} \hlb{across different models. For the sake of illustration, Fig. }\ref{fig15} \hlb{and Fig.} \ref{fig16} \hlb{show an example of the predictions of the individual models. None of the models returned the right prediction as the first prediction, but it was in the top-5 predictions for most models. Their collective prediction (the model ensemble) could return it as the first prediction.}
 
 \begin{figure}[!ht]
-  \caption{{\bf CVUSA combinations for hard-voting with the most accurate model prediction strategy.} The dark bar is the best performing combination. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations.}
   \includegraphics*[width=0.9\linewidth]{fig10.tiff.png}
-  \label{fig10}
+  \caption{{\bf CVUSA combinations for hard-voting with the most accurate model prediction strategy.} The dark bar is the best performing combination. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations.}  \label{fig10}
 \end{figure}
 
 \begin{figure}[!ht]
-  \caption{{\bf CVACT combinations for hard-voting with the most accurate  model prediction strategy.} The dark bar is the best performing combination. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations.}
   \includegraphics*[width=\textwidth,height=0.8\textheight,keepaspectratio]{fig11.tiff.png}
+  \caption{{\bf CVACT combinations for hard-voting with the most accurate  model prediction strategy.} The dark bar is the best performing combination. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations.}
   \label{fig11}
 \end{figure}
 
 \begin{figure}[!ht]
-  \caption{{\bf An example that shows the ensemble model r@(1 - 5) compared to the individual models on the CVUSA dataset.} The true satellite has a red border.}
   \includegraphics*[width=0.9\linewidth]{fig15.tiff.png}
+  \caption{{\bf An example that shows the ensemble model r@(1 - 5) compared to the individual models on the CVUSA dataset.} The true satellite has a red border.}
   \label{fig15}
 \end{figure}
 
 \begin{figure}[!ht]
-  \caption{{\bf An example that shows the ensemble model r@(1 - 5) compared to the individual models on the CVACT dataset.}  The true satellite has a red border.}
   \includegraphics*[width=0.9\linewidth]{fig16.tiff.png}
+  \caption{{\bf An example that shows the ensemble model r@(1 - 5) compared to the individual models on the CVACT dataset.}  The true satellite has a red border.}
   \label{fig16}
 \end{figure}
 
 \hlb{Fig.} \ref{fig12} and \hlb{Fig.} \ref{fig13} show the results of the hard-voting with the random selection strategy for CVUSA and CVACT, respectively. \hlb{Here after removing the bias for the most accurate model increasing the number of voting nodels improvs the result; there's a higher prebability of having the right ground truth in the votes pool.} The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations.
 
 \begin{figure}[!ht]
-  \caption{{\bf CVUSA combinations for hard-voting with the random selection strategy.} The dark bar is the best performing combination. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations. }
   \includegraphics*[width=0.9\linewidth]{fig12.tiff.png}
+  \caption{{\bf CVUSA combinations for hard-voting with the random selection strategy.} The dark bar is the best performing combination. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations. }
   \label{fig12}
 \end{figure}
 
 \begin{figure}[!ht]
-  \caption{{\bf CVACT combinations for hard-voting with the random selection strategy.} The dark bar is the best performing combination. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations.}
   \includegraphics*[width=\textwidth,height=0.8\textheight,keepaspectratio]{fig13.tiff.png}
+  \caption{{\bf CVACT combinations for hard-voting with the random selection strategy.} The dark bar is the best performing combination. The DSM, EgoTR, Toker, and SAFA combination outperforms other combinations.}
   \label{fig13}
 \end{figure}
 
@@ -556,8 +552,8 @@ As mentioned before the cross-view models are complementary to existing GNSS, so
 \hlb{Fig.} \ref{fig14} illustrates that soft voting performs the best. Although soft voting results with joint probability and averaging are identical, the computational cost of averaging strategy is cheaper. Hard-voting strategies have constant computational complexity. 
 
 \begin{figure}[!ht]
-  \caption{{\bf Comparison between aggregation method for the best performing combinations. } {\bf A}: CVUSA and {\bf B}: CVACT.  The dark bar is the best performing aggregation method. Soft voting outperforms other methods across all r@\hlb{$k$} metrics for both datasets.}
   \includegraphics*[width=0.9\linewidth]{fig14.tiff.png}
+  \caption{{\bf Comparison between aggregation method for the best performing combinations. } {\bf A}: CVUSA and {\bf B}: CVACT.  The dark bar is the best performing aggregation method. Soft voting outperforms other methods across all r@\hlb{$k$} metrics for both datasets.}
   \label{fig14}
 \end{figure}
 
@@ -585,8 +581,8 @@ The training process took $192$ hours for $228$ epochs. Table~\ref{table6} shows
 \end{table}
 
 \begin{figure}[!ht]
-  \caption{{\bf The effect of the size of the validation dataset on the r@\hlb{$k$} metric.}  Same model \emph{(EgoTR)} with the same dataset \emph{(BDD-trajectories)}. The accuracy decreases as the size of the validation dataset increases.}
   \includegraphics*[width=0.9\linewidth]{fig17.tiff.png}
+  \caption{{\bf The effect of the size of the validation dataset on the r@\hlb{$k$} metric.}  Same model \emph{(EgoTR)} with the same dataset \emph{(BDD-trajectories)}. The accuracy decreases as the size of the validation dataset increases.}
   \label{fig17}
 \end{figure}
 
@@ -596,8 +592,8 @@ The training process took $192$ hours for $228$ epochs. Table~\ref{table6} shows
 Our experiments, \hlb{Fig.} \ref{fig18}, show that the more we look back on the history of the journey. And the more accuracy improves. The algorithm has no assumptions about the current state, and its computational cost is negligible compared to generating the distance array.
 
 \begin{figure}[!ht]
-  \caption{{\bf The effect of the number of steps we look back on the accuracy.} The accuracy converges to ~100\% after seven steps on our dataset.}
   \includegraphics*[width=0.9\linewidth]{fig18.tiff.png}
+  \caption{{\bf The effect of the number of steps we look back on the accuracy.} The accuracy converges to ~100\% after seven steps on our dataset.}
   \label{fig18}
 \end{figure}
 \FloatBarrier
@@ -611,8 +607,8 @@ However promising this is, if the prior is wrong it can result in “trapping”
 \hlb{The most promising thing about this algorithm is that it can be used in real-time applications and get attached to any cross-view models. For example, it outperforms the GAMa 2D-CNN network} \cite{bib60} \hlb{which takes 8 steps to get an accuracy of 83\% for the r@1\% on their proposed dataset which is based on BDD100K too. And requires minimal resources compared to it during deployment and no training at all.}
 
 \begin{figure}[!ht]
-  \caption{{\bf The effect of weak prior on naive history.}  The accuracy of naive history improves significantly when starting with some prior knowledge about the trip starting point. The brown line(naive history with prior) and the green line (plain naive history) represent the same number of steps into the trip though the brown line shows more accurate predictions due to factoring in the weak prior.}
   \includegraphics*[width=0.9\linewidth]{fig19.tiff.png}
+  \caption{{\bf The effect of weak prior on naive history.}  The accuracy of naive history improves significantly when starting with some prior knowledge about the trip starting point. The brown line(naive history with prior) and the green line (plain naive history) represent the same number of steps into the trip though the brown line shows more accurate predictions due to factoring in the weak prior.}
   \label{fig19}
 \end{figure}
 
